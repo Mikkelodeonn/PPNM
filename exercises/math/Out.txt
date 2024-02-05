@@ -1,4 +1,13 @@
-x=1 Sin(x)=0
+TASK 1:
+
+The squareroot of 2 is 1.4142135623731.
+To check: the squareroot squared equals 2
+2 to the power of 0.2 equals 1.14869835499704.
+Eulers number to the power of pi is equal to 23.1406926327793
+Pi to the power of Eulers number is equal to 22.459157718361
+
+TASK 2:
+
 fgamma(1)=0.999999996451316 0!=1
 fgamma(2)=0.999999996451316 1!=1
 fgamma(3)=1.99999999290263 2!=2
@@ -8,3 +17,17 @@ fgamma(6)=119.999999574158 5!=120
 fgamma(7)=719.999997444947 6!=720
 fgamma(8)=5039.99998211463 7!=5040
 fgamma(9)=40319.999856917 8!=40320
+fgamma(10)=362880.000332397 9!=362880
+
+TASK 3:
+
+lngamma(1)=-3.54868434637723E-09
+lngamma(2)=-3.54868434637723E-09
+lngamma(3)=0.693147177011261
+lngamma(4)=1.79175946567937
+lngamma(5)=3.17805382679926
+lngamma(6)=4.78749173923336
+lngamma(7)=6.57925120846142
+lngamma(8)=8.52516135751673
+lngamma(9)=10.6046028991966
+lngamma(10)=12.8018274809975
