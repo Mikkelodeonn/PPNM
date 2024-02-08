@@ -89,9 +89,9 @@ public class vec{
 
 			// "ToString" method (override)
 
-//        public override string ToString(){
-//                return $"{x} {y} {z}";
-//                }
+        public override string ToString(){
+                return $"{x} {y} {z}";
+                }
 
 
 }
