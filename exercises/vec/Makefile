@@ -1,10 +1,12 @@
 Out.txt:main.exe
 	mono $< > $@
 
-main.exe: main.cs
-	mcs -target:exe -out:$@ $<
+vec.dll: vec.cs
+	mcs -target:library -out:vec.dll vec.cs
 
-clean: 
+
+main.exe: main.cs vec.dll
+	mcs -target:exe -out:main.exe -reference:vec.dll main.cs
+
+clean:
 	$(RM) Out.txt main.exe
-
-

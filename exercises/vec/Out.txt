@@ -1,0 +1,13 @@
+Vector v = 1 2 3
+Vector u = 4 5 6
+u + v = 5 7 9
+u - v = 3 3 3
+c * v = 3 6 9
+-v = -1 -2 -3
+
+Dot product of u and v: 32
+
+Norm of u: 8.77496438739212
+
+u is not approximately equal to v
+
