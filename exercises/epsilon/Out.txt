@@ -1,2 +1,37 @@
+
+Task 1: Max/min representable integers
+
 Maximum representable integer: 2147483647
 Minimum representable integer: -2147483648
+
+Task 2: Machine epsilon
+
+Double machine epsilon: 2.22044604925031E-16
+Check: 2⁻⁵² = 2.22044604925031E-16
+Float machine epsilon: 1.192093E-07
+Check: 2⁻²³ = 1.19209289550781E-07
+
+Task 3: tiny-epsilon
+
+a==b ? False
+a>1  ? False
+b>1  ? True
+a==b returns false due to rounding errors in doubles, they cannot be precisely represented within the memory of the computer, therefore they end up being different.
+
+a>1 returns false because tiny is essentially rounded to yield nothing compared to 1. 1 + nothing + nothing = 1, which is not sharply greater than 1.
+
+b>1 returns true because tiny has value compared to nothing which means that adding 1 to it after the fact yields a value greater than 1.
+
+
+Conclusion: Due to double-precision rounding errors, the '==', '<' and '>' operations cannot be trusted to yield an exact result when dealing with floats/doubles.
+
+
+Task 4: Comparing doubles, introduction
+
+d1=7.999999999999999e-001
+d2=8.000000000000000e-001
+d1==d2 ? => False
+
+Task 5: Comparing doubles, task
+
+d1 and d2 are approximately the same: True
