@@ -1,14 +1,21 @@
 The squareroot of -1 is: 6.12e-17+1i
+Check with approx function: True
 
 The squareroot of i is: 0.707+0.707i
+Check with approx function: True
 
 exp(i) = 0.54+0.841i
+Check with approx function: True
 
 exp(i*pi) = -1+1.22e-16i
+Check with approx function: True
 
 i to the power of i is: 0.208+0i
+Check with approx function: True
 
 ln(i) = 0+1.57i
+Check with approx function: True
 
 sin(i*pi) = 0+11.5i
+Check with approx function: True
 
