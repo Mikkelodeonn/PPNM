@@ -3,7 +3,7 @@ LIBS = $(addprefix -reference:, $(filter %.dll, $^))
 MKEXE = mcs -target:exe -out:$@ $(LIBS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(LIBS) $(CODE)
 
-all : Out.erf.gnuplot.svg Out.gamma.gnuplot.svg
+all : Out.erf.gnuplot.svg Out.gamma.gnuplot.svg Out.lngamma.gnuplot.svg
 
 Out.erf.gnuplot.svg : Out.txt Makefile
 	echo '\
@@ -28,6 +28,14 @@ Out.gamma.gnuplot.svg : Out.txt Makefile
 		plot \
 			"$<" index 1 with lines notitle; \
 	' | tee log.gamma.gpi | gnuplot
+
+Out.lngamma.gnuplot.svg : Out.txt Makefile
+	echo '\
+		set terminal svg background "white" ;\
+		set out "$@" ;\
+		plot \
+			"$<" index 2 with lines notitle ;\
+	' | tee log.lngamma.gpi | gnuplot
 
 Out.txt: main.exe
 	mono $< >$@
