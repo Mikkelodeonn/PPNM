@@ -1,0 +1,6 @@
+\
+	set terminal svg background "white" ;\
+	set out "Out.gamma.gnuplot.svg" ;\
+	plot \
+		"Out.txt" index 1 with lines notitle; \
+

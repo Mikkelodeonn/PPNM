@@ -3,6 +3,8 @@ LIBS = $(addprefix -reference:, $(filter %.dll, $^))
 MKEXE = mcs -target:exe -out:$@ $(LIBS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(LIBS) $(CODE)
 
+all : Out.erf.gnuplot.svg Out.gamma.gnuplot.svg
+
 Out.erf.gnuplot.svg : Out.txt Makefile
 	echo '\
 		set terminal svg background "white" ;\
