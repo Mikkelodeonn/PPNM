@@ -12,11 +12,20 @@ Out.erf.gnuplot.svg : Out.txt Makefile
 		set tics out;\
 		set grid ;\
 		set title "Error function" ;\
-		plot [-3:3]\
-			"$<" with lines notitle \
+		plot \
+			"$<" index 0 with lines notitle \
 			,"erf.data.txt" using 1:2 with points pointtype 6 notitle \
 			,"erf.data.txt" using (-($$1)):(-($$2)) with points pointtype 6 notitle; \
-	' | tee log.gpi | gnuplot
+	' | tee log.erf.gpi | gnuplot
+
+
+Out.gamma.gnuplot.svg : Out.txt Makefile
+	echo '\
+		set terminal svg background "white" ;\
+		set out "$@" ;\
+		plot \
+			"$<" index 1 with lines notitle; \
+	' | tee log.gamma.gpi | gnuplot
 
 Out.txt: main.exe
 	mono $< >$@
