@@ -1,6 +1,11 @@
 \
 	set terminal svg background "white" ;\
 	set out "Out.lngamma.gnuplot.svg" ;\
+	set xlabel "x" ;\
+	set ylabel "y" ;\
+	set tics out ;\
+	set title "Logarithm of Gamma function" ;\
 	plot \
-		"Out.txt" index 2 with lines notitle ;\
+		"Out.txt" index 2 with lines notitle \
+		,"lngamma.data.txt" with points pointtype 6 notitle ;\
 

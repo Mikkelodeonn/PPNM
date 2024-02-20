@@ -7,5 +7,5 @@
 	set title "Gamma function" ;\
 	plot \
 		"Out.txt" index 1 with lines notitle \
-		,"gamma.data.txt" with points pointtype 4;\
+		,"gamma.data.txt" with points pointtype 6 notitle ;\
 

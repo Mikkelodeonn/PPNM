@@ -151,25 +151,19 @@
 		L477.14,315.46 L489.45,298.17 L501.77,277.25 L514.09,251.88 L526.41,221.04 L538.72,183.43 L551.04,137.46 L563.36,81.11
 		 '/></g>
 	</g>
-	<g id="gnuplot_plot_2" ><title>"gamma.data.txt"</title>
+	<g id="gnuplot_plot_2" ><title>gnuplot_plot_2</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(498.09,75.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
-		<text>"gamma.data.txt"</text>
-	</g>
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<use xlink:href='#gpPt3' transform='translate(82.99,276.64) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(122.41,387.92) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(171.68,399.02) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(220.94,400.66) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(270.21,399.02) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(319.48,394.29) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(368.75,384.65) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(418.02,365.62) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(467.28,327.15) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(516.55,246.19) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(565.82,68.39) scale(4.50)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt3' transform='translate(527.76,72.01) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(82.99,276.64) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(122.41,387.92) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(171.68,399.02) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(220.94,400.66) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(270.21,399.02) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(319.48,394.29) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(368.75,384.65) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(418.02,365.62) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(467.28,327.15) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(516.55,246.19) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt5' transform='translate(565.82,68.39) scale(4.50)' color='rgb(  0, 158, 115)'/>
 </g>
 	</g>
 <g fill="none" color="#FFFFFF" stroke="rgb(  0, 158, 115)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
