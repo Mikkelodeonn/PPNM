@@ -25,8 +25,13 @@ Out.gamma.gnuplot.svg : Out.txt Makefile
 	echo '\
 		set terminal svg background "white" ;\
 		set out "$@" ;\
+		set xlabel "x" ;\
+		set ylabel "y" ;\
+		set tics out ;\
+		set title "Gamma function" ;\
 		plot \
-			"$<" index 1 with lines notitle; \
+			"$<" index 1 with lines notitle \
+			,"gamma.data.txt" with points pointtype 4;\
 	' | tee log.gamma.gpi | gnuplot
 
 Out.lngamma.gnuplot.svg : Out.txt Makefile
