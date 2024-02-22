@@ -36,9 +36,15 @@ for(int i=0;i<nthreads;i++) {
 	threads[i].Start(data[i]); /* run it with params[i] as argument to "harm" */
 	}
 
-foreach(var thread in threads) thread.Join();
-double total=0; foreach(var p in data) total+=p.sum;
-
+foreach(var thread in threads){
+	thread.Join();
+	}
+int a = 0;
+double total=0; foreach(var p in data){
+	a++;
+	total+=p.sum;
+	}
+System.Console.WriteLine($"\nNumber of threads: {a}");
 return 0;
 } // Main
 } // class main
