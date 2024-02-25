@@ -9,6 +9,7 @@ Out.erf.gnuplot.svg : Out.txt Makefile
 	echo '\
 		set terminal svg background "white" ;\
 		set out "$@"  ;\
+		set decimalsign ",";\
 		set xlabel "x" ;\
 		set ylabel "y" ;\
 		set tics out;\
@@ -49,6 +50,7 @@ Out.lngamma.gnuplot.svg : Out.txt Makefile
 
 Out.txt: main.exe
 	mono $< >$@
+	sed 's/,/./g' $@ > modified_$@ && mv modified_$@ $@
 
 sfuns.dll: sfuns.cs ; $(MKLIB)
 main.exe: main.cs sfuns.dll ; $(MKEXE)

@@ -1,13 +1,1 @@
-\
-	set terminal svg background "white" ;\
-	set out "Out.erf.gnuplot.svg"  ;\
-	set xlabel "x" ;\
-	set ylabel "y" ;\
-	set tics out;\
-	set grid ;\
-	set title "Error function" ;\
-	plot \
-		"Out.txt" index 0 with lines notitle \
-		,"erf.data.txt" using 1:2 with points pointtype 6 notitle \
-		,"erf.data.txt" using (-($1)):(-($2)) with points pointtype 6 notitle; \
-
+	set terminal svg background "white" ;	set out "Out.erf.gnuplot.svg"  ;	set decimalsign ",";	set xlabel "x" ;	set ylabel "y" ;	set tics out;	set grid ;	set title "Error function" ;	plot 		"Out.txt" index 0 with lines notitle 		,"erf.data.txt" using 1:2 with points pointtype 6 notitle 		,"erf.data.txt" using (-($1)):(-($2)) with points pointtype 6 notitle; 
