@@ -13,8 +13,16 @@ public static class QRGS{
       } 
       return (Q,R);
       } // decomp
-   public static vector solve(matrix Q, matrix R, vector b){
-
+   public static vector solve(matrix Q, matrix R, vector b){ // QRx=b
+        matrix U = Q.dot(R);                        // U = QR
+        for(int i=b.size-1 ; i>=0 ; i--);{          // for i=size.b-1 to 0:
+            double sum = 0.0;                           // sum = 0
+            for(int j=i+1 ; j<b.size ; k++);{           // for j=i+1 to b.size:
+                sum += U[i,j] * b[j];                       // sum = sum + U(i.j) *b(j)
+                b[i] -= sum/U[i,i];                         // b(i) = b(i) - sum/U(i,i)
+            }
+        }
+    return b;
     } // solve
    public static double det(matrix R){ ... }
    public static matrix inverse(matrix Q,matrix R){ ... }
