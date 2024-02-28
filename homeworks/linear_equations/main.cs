@@ -3,7 +3,7 @@ using static System.Console;
 class main{
 static int Main(){
     WriteLine("TASK A:");
-    WriteLine("\n____________________________________________________\nTest of QRGS.decomp\n");
+    WriteLine("\n________________________________________________________________________________________________________\nTest of QRGS.decomp\n");
 
     matrix A = random.CreateRandomMatrix(6,3);
     A.print("Random matrix A:");
@@ -20,22 +20,20 @@ static int Main(){
     matrix QR = Q*R; bool QRA = QR.approx(A);
     QR.print("\nQ times R:"); WriteLine($"\nQR is approximately equal to A: {QRA}");
 
-    WriteLine("\n____________________________________________________\nTest of QRGS.solve\n");
+    WriteLine("\n________________________________________________________________________________________________________\nTest of QRGS.solve\n");
 
-    vector b = random.CreateRandomVector(5);
-    matrix C = random.CreateRandomMatrix(5,5);
+    vector b = random.CreateRandomVector(8); matrix C = random.CreateRandomMatrix(8,8);
     C.print("Random square matrix:");
-    (matrix Q_, matrix R_) = QRGS.decomp(C);
-    vector x = QRGS.solve(Q_,R_,b);
-    x.print("Solution to QRx=b:\n x = ");
+    (matrix Q_, matrix R_) = QRGS.decomp(C); vector x = QRGS.solve(Q_,R_,b);
+    x.print("\nSolution to QRx=b:\n x = ");
     vector Ax = C*x;
-    Ax.print("A*x:");
-    b.print("b:");
+    Ax.print("\nA*x:"); b.print("b:");
+    bool Ax_b = Ax.approx(b); WriteLine($"\nAx is approximately equal to b: {Ax_b}");
 
-    WriteLine("\n____________________________________________________\nTest of QRGS.det\n");
+    WriteLine("\n________________________________________________________________________________________________________\nTest of QRGS.det\n");
 
     double determinant = QRGS.det(R);
-    WriteLine($"Determinant of R:\n det(R) = {determinant}");
+    WriteLine($"Determinant of R:\n det(R) = {determinant}\n");
 
 return 0;
 } // Main

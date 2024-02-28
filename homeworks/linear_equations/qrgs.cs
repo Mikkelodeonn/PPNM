@@ -2,7 +2,6 @@ public static class QRGS{
    public static (matrix,matrix) decomp(matrix A){
         matrix Q=A.copy(); // A copy of A is made and denoted Q
         matrix R=new matrix(A.size2,A.size2); // size2 -> m
-         /* orthogonalize Q and fill-in R */
          for(int i=0 ; i<A.size2 ; i++){            // for i=0 to m:
             R[i,i] = Q[i].norm();                   // R(i,i) = ||Q(i)|| (Q(i) points to the i'th column)
             Q[i]/=R[i,i];                           // Q(i) = Q(i)/R(i,i)
@@ -13,16 +12,16 @@ public static class QRGS{
       } 
       return (Q,R);
       } // decomp 
-   public static vector solve(matrix Q, matrix R, vector b){ // QRx=b
+   public static vector solve(matrix Q, matrix R, vector b){ // QRx=b -> Rx = b/Q = y
         vector y = Q.transpose() * b;
-        int n = Q.size2;
+        int n = y.size;
         vector x = new vector(n);
         for(int i=n-1 ; i>=0 ; i--){
             double sum = 0.0;
             for(int j=i+1 ; j<n ; j++){
                 sum += R[i,j] * x[j];
-                x[i] = (y[i] - sum)/R[i,i];      
-            }
+                }
+            x[i] = (y[i] - sum)/R[i,i];      
         }
     return x;
     } // solve
