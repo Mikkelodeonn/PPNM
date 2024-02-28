@@ -5,7 +5,7 @@ static int Main(){
     WriteLine("TASK A:");
     WriteLine("\n____________________________________________________\nTest of QRGS.decomp\n");
 
-    matrix A = CreateRandomMatrix(6,3);
+    matrix A = random.CreateRandomMatrix(6,3);
     A.print("Random matrix A:");
 
     (matrix Q, matrix R) = QRGS.decomp(A);
@@ -22,8 +22,8 @@ static int Main(){
 
     WriteLine("\n____________________________________________________\nTest of QRGS.solve\n");
 
-    vector b = CreateRandomVector(5);
-    matrix C = CreateRandomMatrix(5,5);
+    vector b = random.CreateRandomVector(5);
+    matrix C = random.CreateRandomMatrix(5,5);
     C.print("Random square matrix:");
     (matrix Q_, matrix R_) = QRGS.decomp(C);
     vector x = QRGS.solve(Q_,R_,b);
@@ -39,29 +39,4 @@ static int Main(){
 
 return 0;
 } // Main
-
-public static matrix CreateRandomMatrix(int rows, int columns){
-    var rnd = new System.Random(1); 
-    matrix RndMat = new matrix(rows,columns);
-
-    for(int i=0 ; i<rows ; i++){
-        for(int j=0 ; j<columns ; j++){
-            double RandomValue = rnd.NextDouble();
-            RndMat[i,j] = RandomValue;
-        }
-    }
-return RndMat;
-} // CreateRandomMatrix
-
-public static vector CreateRandomVector(int n){
-    var rnd = new System.Random(1);
-    vector RndVec = new vector(n);
-
-    for(int i=0 ; i<n ; i++){
-        double RandomVal = rnd.NextDouble();
-        RndVec[i] = RandomVal;
-    }
-return RndVec;
-} // CreateRandomVector
-
 } // class main
