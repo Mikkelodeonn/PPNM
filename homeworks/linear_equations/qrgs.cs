@@ -1,13 +1,13 @@
 public static class QRGS{
    public static (matrix,matrix) decomp(matrix A){
-        matrix Q=A.copy(); // A copy of A is made and denoted Q
-        matrix R=new matrix(A.size2,A.size2); // size2 -> m
-         for(int i=0 ; i<A.size2 ; i++){            // for i=0 to m:
-            R[i,i] = Q[i].norm();                   // R(i,i) = ||Q(i)|| (Q(i) points to the i'th column)
-            Q[i]/=R[i,i];                           // Q(i) = Q(i)/R(i,i)
-            for(int j=i+1 ; j<A.size2 ; j++){            // for j=i+1 to m:
-                R[i,j] = Q[i].dot(Q[j]);                // R(i,j) = Q(i) * Q(j)
-                Q[j]-=Q[i]*R[i,j];                      // Q(j) = Q(j) - Q(i) * R(i,j)
+        matrix Q=A.copy(); 
+        matrix R=new matrix(A.size2,A.size2); 
+         for(int i=0 ; i<A.size2 ; i++){ 
+            R[i,i] = Q[i].norm();
+            Q[i]/=R[i,i]; 
+            for(int j=i+1 ; j<A.size2 ; j++){ 
+                R[i,j] = Q[i].dot(Q[j]); 
+                Q[j]-=Q[i]*R[i,j]; 
         }
       } 
       return (Q,R);
@@ -50,5 +50,23 @@ public static class QRGS{
         }
     return 0.0;
    } // det
-   //public static matrix inverse(matrix Q,matrix R){ ... }
+   public static matrix inverse(matrix Q,matrix R){
+        matrix Q_inverse = Q.transpose();
+        matrix R_inverse = new matrix(R.size1, R.size2);
+
+        int n = R.size1; // dimension of upper triangular matrix
+
+        for(int i=n-1 ; i>=0 ; i--){
+            R_inverse[i,i] = 1.0/R[i,i];
+            for(int j=i+1 ; j<n ; j++){
+                double sum = 0.0;
+                for(int k=i+1 ; k<n ; k++){
+                    sum += R[i,k] * R_inverse[k,j];
+                }
+            R_inverse[i,j] = -sum/ R[i,i];
+            }
+        }
+        matrix A_inverse = R_inverse * Q_inverse;
+    return A_inverse;
+   } // inverse
 } // QRGS
