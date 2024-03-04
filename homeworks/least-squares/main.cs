@@ -15,24 +15,26 @@ public static int Main(){
     for(int i=0 ; i<y.size ; i++){
         dy[i] = y[i] * 0.05; // assuming errors of 5%
         lny[i] = Math.Log(y[i]); // calculating ln(y)
-        dlny[i] = y[i] / dy[i];
+        dlny[i] = dy[i] / y[i];
     }
 
-    x.print("Time [days]:");
-    y.print("Activity of ThX [relative units]:");
-    dy.print("Error of the activity (assumed to be 5%):");
+    x.print("\nTime [days]:");
+    y.print("\nActivity of ThX [relative units]:");
+    dy.print("\nError of the activity (assumed to be 5%):");
+    lny.print("\nLog(y):");
+    dlny.print("\nError of log(y):");
 
     Func<double,double>[] decay_func = new Func<double,double> [] {z => 1, z => -z};
 
     var (coeffs, cov_mat) = lslib.lsfit(decay_func, x, lny, dlny);
 
-    coeffs.print("Fitting parameters:");
-    cov_mat.print("Covariance matrix:");
+    coeffs.print("\nFitting parameters:");
+    cov_mat.print("\nCovariance matrix:");
 
+    WriteLine("\n Fitting parameter values \n\n");
     vector y_fit = new vector(y.size);
-    WriteLine("Fitting function values [value, time]:\n\n\n");
     for(int j=0 ; j<y.size ; j++){
-        y_fit[j] = Log(coeffs[0]) - coeffs[1]*x[j];
+        y_fit[j] = coeffs[0] - coeffs[1]*x[j];
         WriteLine($"{x[j]}  {y_fit[j]}");
     }
 
