@@ -35,6 +35,8 @@ static int Main(){
     double determinant = QRGS.det(R);
     WriteLine($"Determinant of R:\n det(R) = {determinant}\n");
 
+    WriteLine("\nTask B:");
+
     WriteLine("\n________________________________________________________________________________________________________\nTest of QRGS.inverse\n");
     C.print("\nRandom square matrix A:");
     matrix A_inv = QRGS.inverse(Q_,R_);

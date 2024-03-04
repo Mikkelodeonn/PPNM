@@ -1,0 +1,1 @@
+		set terminal svg background "white";		set out "Out.txt" ;		plot 				"Out.txt" index 1 with lines notitle ;	
