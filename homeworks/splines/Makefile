@@ -4,6 +4,10 @@ Out.spline.svg:Out.txt Makefile
 	echo '\
 			set terminal svg background "white"; \
 			set out "$@"; \
+			set grid; \
+			set xlabel "x"; \
+			set ylabel "s [sin(x)]"; \
+			set title "Linear spline interpolation of sin(x)"; \
 			plot \
 					"$<" index 0 with points pointtype 6 notitle \
 					,"$<" index 1 with lines notitle; \
@@ -13,6 +17,10 @@ Out.int_spline.svg:Out.txt Makefile
 	echo '\
 			set terminal svg background "white"; \
 			set out "$@"; \
+			set grid; \
+			set xlabel "x"; \
+			set ylabel "integral of s"; \
+			set title "Integral of linear spline interpolation of sin(x)"; \
 			plot \
 					"$<" index 1 using 0:2 with lines notitle; \
 		'| tee log.spline.gpi | gnuplot
