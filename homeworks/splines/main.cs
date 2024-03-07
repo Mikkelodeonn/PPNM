@@ -12,8 +12,8 @@ static int Main(){
     }
     WriteLine("\n\n");
     for(double j=0 ; j<=index-1 ; j+=0.25){
-        double s = interpol.linear(x,y,j);
-        double s_int = interpol.linear_integral(x,y,j);
+        double s = spline.linear(x,y,j);
+        double s_int = spline.linear_integral(x,y,j);
         WriteLine($"{j} {s}, {s_int}"); 
     }
 return 0;

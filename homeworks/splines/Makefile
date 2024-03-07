@@ -33,8 +33,8 @@ Out.txt:main.exe
 main.exe:main.cs spline.dll 
 	mcs -target:exe -out:main.exe -reference:spline.dll main.cs 
 
-spline.dll:spline.cs binary_search.cs
-	mcs -target:library -out:spline.dll spline.cs binary_search.cs
+spline.dll:spline.cs binary_search.cs vector.cs matrix.cs
+	mcs -target:library -out:spline.dll spline.cs binary_search.cs vector.cs matrix.cs
 
 clean:
 	$(RM) *.exe *.dll [Oo]ut*
