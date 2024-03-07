@@ -19,7 +19,7 @@ Out.int_spline.svg:Out.txt Makefile
 			set out "$@"; \
 			set grid; \
 			set xlabel "x"; \
-			set ylabel "integral of s"; \
+			set ylabel "integral of linear spline"; \
 			set title "Integral of linear spline interpolation of sin(x)"; \
 			plot \
 					"$<" index 1 using 0:2 with lines notitle; \
