@@ -1,6 +1,6 @@
-all: Out.spline.svg Out.int_spline.svg
+all: Out.linear_spline.svg Out.int_linear_spline.svg Out.quadratic_spline.svg
 
-Out.spline.svg:Out.txt Makefile
+Out.linear_spline.svg:Out.txt Makefile
 	echo '\
 			set terminal svg background "white"; \
 			set out "$@"; \
@@ -13,7 +13,7 @@ Out.spline.svg:Out.txt Makefile
 					,"$<" index 1 with lines notitle; \
 		'| tee log.spline.gpi | gnuplot
 
-Out.int_spline.svg:Out.txt Makefile
+Out.int_linear_spline.svg:Out.txt Makefile
 	echo '\
 			set terminal svg background "white"; \
 			set out "$@"; \
@@ -24,6 +24,20 @@ Out.int_spline.svg:Out.txt Makefile
 			plot \
 					"$<" index 1 using 0:2 with lines notitle; \
 		'| tee log.spline.gpi | gnuplot
+
+Out.quadratic_spline.svg:Out.txt Makefile
+	echo '\
+			set terminal svg background "white"; \
+			set out "$@"; \
+			set grid; \
+			set xlabel "x"; \
+			set ylabel "quadratic spline"; \
+			set title "quadratic spline interpolation of sin(x)"; \
+			plot \
+					"$<" index 3 with lines notitle \
+					, "$<" index 0 with points pointtype 6 notitle; \
+		'| tee log.spline.gpi | gnuplot
+
 
 
 Out.txt:main.exe
@@ -37,4 +51,4 @@ spline.dll:spline.cs binary_search.cs vector.cs matrix.cs
 	mcs -target:library -out:spline.dll spline.cs binary_search.cs vector.cs matrix.cs
 
 clean:
-	$(RM) *.exe *.dll [Oo]ut*
+	$(RM) *.exe *.dll *.svg *.gpi [Oo]ut*

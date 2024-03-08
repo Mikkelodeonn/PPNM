@@ -1,1 +1,1 @@
-		set terminal svg background "white"; 		set out "Out.int_spline.svg"; 		set grid; 		set xlabel "x"; 		set ylabel "integral of s"; 		set title "Integral of linear spline interpolation of sin(x)"; 		plot 				"Out.txt" index 1 using 0:2 with lines notitle; 	
+		set terminal svg background "white"; 		set out "Out.quadratic_spline.svg"; 		set grid; 		set xlabel "x"; 		set ylabel "quadratic spline"; 		set title "quadratic spline interpolation of sin(x)"; 		plot 				"Out.txt" index 3 with lines notitle 				, "Out.txt" index 0 with points pointtype 6 notitle; 	
