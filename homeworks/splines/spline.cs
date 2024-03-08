@@ -5,7 +5,7 @@ public static double linear(double[] x, double[] y, double z){
     int i = locate_index.binsearch(x,z);
     double dx=x[i+1]-x[i]; if(!(dx>0)) throw new Exception("uups...");
     double dy=y[i+1]-y[i];
-    return y[i]+dy/dx*(z-x[i]);
+return y[i]+dy/dx*(z-x[i]);
 } // linear
 
 public static double linear_integrate(double[] x, double[] y, double z){
@@ -13,7 +13,7 @@ public static double linear_integrate(double[] x, double[] y, double z){
     double dx=x[i+1]-x[i]; 
     double dy=y[i+1]-y[i];
     double integral = y[i] * (z - x[0]) + dy/dx * (Pow((z - x[0]),2))/2;
-    return integral;
+return integral;
 } // linear_integral
 
 public static (double[],double[]) quad_build(double[] x, double[] y){
@@ -36,6 +36,18 @@ return (b,c);
 public static double quad_eval(double[] x, double[] y, double[] b, double[] c, double z){
     int index = locate_index.binsearch(x,z);
     double s = y[index] + b[index]*(z-x[index]) + c[index]*Pow((z-x[index]),2);
-    return s;
+return s;
 } // quad_eval
+
+public static double quad_derivative(double[] x, double[] b, double[] c, double z){
+    int index = locate_index.binsearch(x,z);
+    double ds_dx = b[index] + 2*c[index]*(z - x[index]);
+return ds_dx;
+} // quad_integrate
+
+public static double quad_integrate(double[] x, double[] y, double[] b, double[] c, double z){
+    int index = locate_index.binsearch(x,z);
+    double s_int = z*y[index] + (1/2)*b[index]*z*(z-2*x[index]) + (1/3)*c[index]*z*(Pow(z,2)-3*z*x[index]+3*Pow(x[index],2));
+return s_int;
+} // quad_derivative
 } // class interpol
