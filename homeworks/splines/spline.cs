@@ -35,8 +35,8 @@ return (b,c);
 } // quad_build
 
 public static double quad_eval(double[] x, double[] y, double[] b, double[] c, double z){
-    int index = locate_index.binsearch(x,z);
-    double s = y[index] + b[index]*(z-x[index]) + c[index]*Pow((z-x[index]),2);
+    int i = locate_index.binsearch(x,z);
+    double s = y[i] + b[i]*(z-x[i]) + c[i]*Pow((z-x[i]),2);
 return s;
 } // quad_eval
 
