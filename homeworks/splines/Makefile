@@ -1,4 +1,4 @@
-all: Out.linear_spline.svg Out.linear_integral.svg Out.quadratic_spline.svg Out.quadratic_integral.svg Out.quadratic_derivative.svg
+all: Out.linear_spline.svg Out.quadratic_spline.svg 
 
 Out.linear_spline.svg:Out.txt Makefile
 	echo '\
@@ -7,25 +7,13 @@ Out.linear_spline.svg:Out.txt Makefile
 			set datafile separator " "; \
 			set grid; \
 			set xlabel "x"; \
-			set ylabel "s [sin(x)]"; \
+			set ylabel "sin(x)"; \
 			set title "Linear spline interpolation of sin(x)"; \
 			plot \
-					"$<" index 0 with points pointtype 6 notitle \
-					,"$<" index 3 skip 1 with lines notitle; \
-		'| tee log.spline.gpi | gnuplot
-
-Out.linear_integral.svg:Out.txt Makefile
-	echo '\
-			set terminal svg background "white"; \
-			set out "$@"; \
-			set datafile separator " "; \
-			set grid; \
-			set xlabel "x"; \
-			set ylabel "integral of linear spline"; \
-			set title "Integral of linear spline interpolation of sin(x)"; \
-			plot \
-					"$<" index 1 with points pointtype 6 notitle \
-					,"$<" index 4 skip 1 with lines notitle; \
+					"$<" index 0 with points pointtype 6 title "Sin(x)" \
+					,"$<" index 1 with points pointtype 6 title "integral of Sin(x)" \
+					,"$<" index 3 skip 1 with lines title "Linear spline" \
+					,"$<" index 4 skip 1 with lines title "Integral of linear spline"; \
 		'| tee log.spline.gpi | gnuplot
 
 Out.quadratic_spline.svg:Out.txt Makefile
@@ -35,39 +23,15 @@ Out.quadratic_spline.svg:Out.txt Makefile
 			set datafile separator " "; \
 			set grid; \
 			set xlabel "x"; \
-			set ylabel "quadratic spline"; \
-			set title "quadratic spline interpolation of sin(x)"; \
+			set ylabel "sin(x)"; \
+			set title "Quadratic spline interpolation of sin(x)"; \
 			plot \
-					"$<" index 0 with points pointtype 6 notitle \
-					,"$<" index 5 skip 1 with lines notitle; \
-		'| tee log.spline.gpi | gnuplot
-
-Out.quadratic_integral.svg:Out.txt Makefile
-	echo '\
-			set terminal svg background "white"; \
-			set out "$@"; \
-			set datafile separator " "; \
-			set grid; \
-			set xlabel "x"; \
-			set ylabel "integral of quadratic spline"; \
-			set title "integral of quadratic spline interpolation of sin(x)"; \
-			plot \
-					"$<" index 1 with points pointtype 6 notitle \
-					,"$<" index 6 skip 1 with lines notitle; \
-		'| tee log.spline.gpi | gnuplot
-
-Out.quadratic_derivative.svg:Out.txt Makefile
-	echo '\
-			set terminal svg background "white"; \
-			set out "$@"; \
-			set datafile separator " "; \
-			set grid; \
-			set xlabel "x"; \
-			set ylabel "derivative of quadratic spline"; \
-			set title "derivative of quadratic spline interpolation of sin(x)"; \
-			plot \
-					"$<" index 2 with points pointtype 6 notitle \
-					,"$<" index 7 skip 1 with lines notitle; \
+					"$<" index 0 with points pointtype 6 title "Sin(x)" \
+					,"$<" index 1 with points pointtype 6 title "Integral of sin(x)" \
+					,"$<" index 2 with points pointtype 6 title "Derivative of sin(x)" \
+					,"$<" index 5 skip 1 with lines title "Quadratic spline" \
+					,"$<" index 6 skip 1 with lines title "Integral of quadratic spline" \
+					,"$<" index 7 skip 1 with lines title "Derivative of quadratic spline"; \
 		'| tee log.spline.gpi | gnuplot
 
 Out.txt:main.exe

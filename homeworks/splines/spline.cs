@@ -10,27 +10,46 @@ return y[i]+dy/dx*(z-x[i]);
 
 public static double linear_integrate(double[] x, double[] y, double z){
     int i = locate_index.binsearch(x,z);
-    double dx=x[i+1]-x[i]; 
-    double dy=y[i+1]-y[i];
-    double p = dy/dx;
-    double integral = y[i] * (z - x[0]) + p * (Pow((z - x[0]),2))/2;
-return integral;
+    double sum=0,dx,dy;
+	for(int j=0 ; j<i ; j++){
+		dx = x[j+1]-x[j];
+        dy = y[j+1]-y[j];
+        double p = dy/dx;
+		sum += dx * (y[j] + dx*p/2);
+		}
+	dx=z-x[i];
+    dy=y[i+1]-y[i];
+    double p_i = dy/dx;
+    double s_int = sum + dx * (y[i] + dx*p_i);
+return s_int;
 } // linear_integral
 
 public static (double[],double[]) quad_build(double[] x, double[] y){
     // vector x = xs.copy(); vector y = ys.copy();
     if(!(x.Length == y.Length)) throw new Exception("x & y have different dimensions.");
-    double[] b = new double[x.Length];
-    double[] c = new double[x.Length];
-    double[] p = new double[x.Length];
+    int n = x.Length;
+    double[] b = new double[n-1];
+    double[] c = new double[n-1];
+    double[] p = new double[n-1];
+    double[] dx = new double[n-1];
     c[0] = 0;
-    for(int i=0 ; i<x.Length-1 ; i++){
-        double dx = x[i+1] - x[i]; if(!(dx>0)) throw new Exception("x not continuous...");
+    for(int i=0 ; i<n-1 ; i++){
+        dx[i] = x[i+1] - x[i]; // if(!(dx[i]>0)) throw new Exception("x not continuous...");
         double dy = y[i+1] - y[i];
-        p[i] = dy/dx;
-        c[i+1] = (1/dx) * (p[i+1] - p[i] - c[i]*dx);
-        b[i] = p[i] - c[i]*dx;
-    }
+        p[i] = dy/dx[i];
+        //c[i+1] = (1/dx) * (p[i+1] - p[i] - c[i]*dx);
+        //b[i] = p[i] - c[i]*dx;
+        }
+    for(int i=0 ; i<n-2 ; i++){ // up recursion
+		c[i+1]=(p[i+1]-p[i]-c[i]*dx[i])/dx[i+1];
+        }
+	c[n-2]/=2;                                 
+	for(int i=n-3 ; i>=0 ; i--){ // down recursion
+		c[i]=(p[i+1]-p[i]-c[i+1]*dx[i+1])/dx[i];
+        }
+	for(int i=0 ; i<n-1 ; i++){
+		b[i]=p[i]-c[i]*dx[i];
+        }
 return (b,c);
 } // quad_build
 
@@ -42,13 +61,19 @@ return s;
 
 public static double quad_derivative(double[] x, double[] b, double[] c, double z){
     int i = locate_index.binsearch(x,z);
-    double ds_dx = b[i] + 2*c[i]*(z-x[0]);
+    double ds_dx = b[i] + 2*c[i]*(z-x[i]);
 return ds_dx;
-} // quad_integrate
+} // quad_derivative
 
 public static double quad_integrate(double[] x, double[] y, double[] b, double[] c, double z){
     int i = locate_index.binsearch(x,z);
-    double s_int = y[i] * (z-x[0]) + b[i] * Pow((z-x[0]),2)/2 + 2*c[i] * Pow((z-x[0]),3)/3;
-return s_int;
-} // quad_derivative
+    double sum=0,dx;
+	for(int j=0 ; j<i ; j++){
+		dx=x[j+1]-x[j];
+		sum += dx*(y[j]+dx*(b[j]/2+dx*c[j]/3));
+		}
+	dx=z-x[i];
+    double s_int = sum + dx *(y[i]+dx*(b[i]/2+dx*c[i]/3));
+	return s_int;
+} // quad_integrate
 } // class interpol
