@@ -46,3 +46,4 @@ spline.dll:spline.cs binary_search.cs vector.cs matrix.cs
 
 clean:
 	$(RM) *.exe *.dll *.svg *.gpi [Oo]ut*
+
