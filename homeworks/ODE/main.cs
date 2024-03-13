@@ -35,9 +35,6 @@ public static void Main(){
     WriteLine("\n\n\n");
     for(int i=0;i<x_simple.size;i++)
 		WriteLine($"{x_simple[i]} {y_simple[i][1]}"); // velocity(t) (simple)
-
-
- 
     } // Main
 } // class main
 

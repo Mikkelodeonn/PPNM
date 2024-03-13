@@ -37,8 +37,6 @@ public static (double[],double[]) quad_build(double[] x, double[] y){
         dx[i] = x[i+1] - x[i]; // if(!(dx[i]>0)) throw new Exception("x not continuous...");
         double dy = y[i+1] - y[i];
         p[i] = dy/dx[i];
-        //c[i+1] = (1/dx) * (p[i+1] - p[i] - c[i]*dx);
-        //b[i] = p[i] - c[i]*dx;
         }
     for(int i=0 ; i<n-2 ; i++){ // up recursion
 		c[i+1]=(p[i+1]-p[i]-c[i]*dx[i])/dx[i+1];
