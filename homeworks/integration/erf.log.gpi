@@ -1,0 +1,1 @@
+				set terminal png background "white";				set out "out.erf.png";				set ylabel "erf(x)";				set xlabel "x";				set title "integral representation of the errorfunction";				set grid;				plot						"out.txt" index 1 with lines title "erf(x)"						,"out.txt" index 2 with points pointtype 2 title "table values"; 				
