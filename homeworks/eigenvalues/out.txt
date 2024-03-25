@@ -1,0 +1,55 @@
+Test of implementation of Jacobi diagonalization (with cyclic sweeps):
+
+
+Random symmetric matrix A:
+     0.249      0.111      0.467 
+     0.111      0.772      0.658 
+     0.467      0.658      0.433 
+
+-----------------------------------------------------------------
+
+Diagonal matrix D with corresponding eigenvalues:
+    -0.282          0  -2.58e-10 
+ -3.12e-17      0.327   4.11e-16 
+ -2.58e-10   4.15e-16       1.41 
+
+Orthogonal matrix V of eigenvectors:
+     0.558     -0.765      0.321 
+     0.396      0.586      0.707 
+    -0.729     -0.267       0.63 
+
+-----------------------------------------------------------------
+
+Matrix product VDV:
+     0.249      0.111      0.467 
+     0.111      0.772      0.658 
+     0.467      0.658      0.433 
+
+VDV == A: True (with precision of order 1e-6).
+
+-----------------------------------------------------------------
+
+Matrix product VAV:
+    -0.282  -3.47e-17  -2.58e-10 
+ -2.78e-17      0.327   3.54e-16 
+ -2.58e-10   4.72e-16       1.41 
+
+VAV == D: True (with precision of order 1e-6).
+
+-----------------------------------------------------------------
+
+Matrix product V(T) * V:
+         1  -1.67e-16  -5.55e-17 
+ -1.67e-16          1  -1.67e-16 
+ -5.55e-17  -1.67e-16          1 
+
+V(T) * V = Identity: True (with precision of order 1e-6).
+
+-----------------------------------------------------------------
+
+Matrix product V * V(T):
+         1   2.78e-17   5.55e-17 
+  2.78e-17          1   5.55e-17 
+  5.55e-17   5.55e-17          1 
+
+V * V(T) = Identity: True (with precision of order 1e-6).
