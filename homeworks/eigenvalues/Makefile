@@ -36,7 +36,7 @@ psi.png:out.txt Makefile
 			set xrange [-0.1:10];\
 			set xlabel "r [bohr radius]";\
 			set ylabel "f(r) [arbitrary units]";\
-			set title "Hydrogen atom ground state radial s-wave";\
+			set title "Hydrogen atom ground state radial wave function";\
 			plot\
 					"$<" index 3 using 1:2 with points pointtype 7 pointsize 0.5 title "calculated"\
 					,"$<" index 3 using 1:3 with lines title "exact";\
