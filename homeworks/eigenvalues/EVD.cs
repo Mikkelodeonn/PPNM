@@ -1,7 +1,12 @@
 using System;
+using static System.Console;
 using static System.Math;
 
 public static class EVD{
+
+public static void bigskip(){
+    WriteLine("\n\n\n\n\n");
+}
 public static void timesJ(matrix A, int p, int q, double theta){
 	double c=Cos(theta),s=Sin(theta);
 	for(int i=0;i<A.size1;i++){
@@ -43,5 +48,30 @@ do{
 }while(changed);
 return (A,V);
 } // cyclic
+public static (double,matrix) hydrogen_s_wave(double rmax, double dr){
+int n = (int)(rmax/dr)-1;
+vector r = new vector(n);
+for(int i=0;i<n;i++){
+    r[i]=dr*(i+1);
+    }
+matrix H = new matrix(n,n);
+for(int i=0;i<n-1;i++){
+   H[i,i]  =-2*(-0.5/dr/dr);
+   H[i,i+1]= 1*(-0.5/dr/dr);
+   H[i+1,i]= 1*(-0.5/dr/dr);
+  }
+H[n-1,n-1]=-2*(-0.5/dr/dr);
+for(int i=0;i<n;i++){
+    H[i,i]+=-1/r[i];
+    }
+(matrix A, matrix V) = cyclic(H);
+double E0 = double.PositiveInfinity;
+for(int i=0;i<n;i++){
+    if(A[i,i] < E0){
+        E0 = A[i,i];
+    }
+}
+return (E0,V);
+} // hydrogen_s_wave
 
 } // EVD
