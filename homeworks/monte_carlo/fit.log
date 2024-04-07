@@ -1,7 +1,7 @@
 
 
 *******************************************************************************
-Sun Apr  7 15:38:48 2024
+Sun Apr  7 15:41:02 2024
 
 
 FIT:    data read from "out.txt" using 1:4
@@ -14,17 +14,17 @@ function used for fitting: f(x)
 fitted parameters initialized with current variable values
 
 iter      chisq       delta/lim  lambda   a            
-   0 1.3582309122e-02   0.00e+00  2.12e-02    1.000000e+00
-   3 1.2934675549e-03  -1.46e-05  2.12e-05    2.609011e-01
+   0 1.2138143729e-02   0.00e+00  2.12e-02    1.000000e+00
+   3 1.0993092425e-03  -1.54e-05  2.12e-05    2.994991e-01
 
 After 3 iterations the fit converged.
-final sum of squares of residuals : 0.00129347
-rel. change during last iteration : -1.4605e-10
+final sum of squares of residuals : 0.00109931
+rel. change during last iteration : -1.54365e-10
 
 degrees of freedom    (FIT_NDF)                        : 49
-rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00513783
-variance of residuals (reduced chisquare) = WSSR/ndf   : 2.63973e-05
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00473655
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.24349e-05
 
 Final set of parameters            Asymptotic Standard Error
 =======================            ==========================
-a               = 0.260901         +/- 0.03426      (13.13%)
+a               = 0.299499         +/- 0.03158      (10.54%)
