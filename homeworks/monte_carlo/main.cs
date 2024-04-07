@@ -27,15 +27,15 @@ for(int i=0 ; i<N ; i++){
 public static void Main(string[] args){
 int n = 1000;
 if(args.Length > 0){
-    n = (int)double.Parse(args[0]);
-    }
+   n = (int)double.Parse(args[0]);
+   }
 double R = 1;
 Func<vector,double> f = x =>{
 	if(x.norm()<=R)return 1;
 	else return 0;
 	};
-vector a = new vector(0.0,0.0);
-vector b = new vector(1.0,1.0);
+vector a = new vector(0.0, 0.0);
+vector b = new vector(1.0, 1.0);
 (double q, double e) = plain(f,a,b,n);
 double exact = PI/4;
 WriteLine($"{n} {q} {e} {Abs(q-exact)}");
