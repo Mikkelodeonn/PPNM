@@ -23,7 +23,18 @@ for(int i=0 ; i<N ; i++){
         double mean=sum/N, sigma=Sqrt(sum2/N-mean*mean);
         var result=(mean*V,sigma*V/Sqrt(N));
         return result;
-} // plain
+} // plain monte carlo integration
+
+static double corput(int n, int b){
+double q = 0;
+double bk = (double)1/b;
+while(n > 0){
+    q += (n % b) * bk;
+    n /= b;
+    bk /= b;
+}
+return q;
+} // corput (for quasi-random integrator)
 public static void Main(string[] args){
 int n = 1000;
 if(args.Length > 0){
