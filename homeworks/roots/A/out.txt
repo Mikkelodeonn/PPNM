@@ -1,0 +1,16 @@
+Testing my implementation on Rosenbrock's valley function f(x.y) = (1-x)^2 + 100(y-x^2)^2:
+Extremum is found at:
+ (x.y) =          1          1 
+Testing my implementation on the Himmelblau function f(x.y) = (x^2+y-11)^2+(x+y^2-7)^2
+Minimum is found at:
+ (x.y) =          3          2 
+
+
+
+
+1.00000254859182  1.00000504821494    0
+
+
+
+
+3.00000002299861  1.99999999434526    0
