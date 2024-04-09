@@ -17,7 +17,15 @@ var (pos, wave_function) = RK.driver(schrodinger, (rmin,rmax), sch, acc, eps);
 return (pos, wave_function);
 } // radial wave function
 
-
+//public static double states(double rmin, double rmax) {
+//Func<vector,vector> M = delegate(vector e) {
+ //   var res = radial_wave_function(e[0], rmax, rmin);
+ //   return res;
+ //   };
+//double eps = 1e-3;
+//var energies = roots.newton(M, new vector(-1.0), eps);
+//return energies[0];
+//} // states
 
 public static void Main(){
 double rmin = 1e-3;
