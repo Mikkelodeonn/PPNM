@@ -1,3 +1,12 @@
+all: out.txt out.wave_func.png
+
+out.wave_func.png: out.txt Makefile
+	echo '\
+		set terminal png background "white";\
+		set output "$@";\
+		plot\
+			"$<" index 1 using 0:2 with lines notitle\
+		' | tee log.gpi | gnuplot
 
 out.txt: main.exe
 	mono $< >$@
