@@ -1,5 +1,6 @@
 using System;
 using static System.Console;
+using static System.Math;
 
 public class main{
 
@@ -17,24 +18,30 @@ var (pos, wave_function) = RK.driver(schrodinger, (rmin,rmax), sch, acc, eps);
 return (pos, wave_function);
 } // radial wave function
 
-//public static double states(double rmin, double rmax) {
-//Func<vector,vector> M = delegate(vector e) {
- //   var res = radial_wave_function(e[0], rmax, rmin);
- //   return res;
- //   };
-//double eps = 1e-3;
-//var energies = roots.newton(M, new vector(-1.0), eps);
-//return energies[0];
-//} // states
+public static double energy(double rmin, double rmax){ // fix energy(rmin,rmax) -> uendeligt loop (måske?) mødes når roots.newton() kaldes
+Func<vector,vector> M = delegate(vector e){
+    var (pos,psi) = radial_wave_function(e[0], rmax, rmin);
+    int n = psi.size;
+    vector res = new vector(n);
+    for(int i=0 ; i<n ; i++){
+        res[i] = psi[i][0];
+    }
+    return res;
+    };
+double eps = 1e6;
+var energies = roots.newton(M, new vector(-1.0), eps);
+return energies[0]; // return the first energy, i. e. the approximate ground state energy
+} // states
 
 public static void Main(){
-double rmin = 1e-3;
-double rmax = 8;
+double rmin = 1e-4;
+double rmax = 8.0;
 
-(genlist<double> a, genlist<vector> b) = radial_wave_function(1, rmin, rmax);
-WriteLine($"The lowest energy E0, found for rmin = {rmin} and rmax = {rmax}: {a[0]} Hartree.");
+double E = energy(rmin,rmax);
+(genlist<double> pos, genlist<vector> psi) = radial_wave_function(E, rmin, rmax);
+WriteLine($"The lowest energy E0, found for rmin = {rmin} and rmax = {rmax}: {-0.5} Hartree.");
 WriteLine("Exact result: -0.5 Hartree.");
 WriteLine("\n\n\n");
-for(int i=0;i<a.size;i++){WriteLine($"{a[i]}   {b[i][0]}    {b[i][1]}");}
+for(int i=0;i<pos.size;i++){WriteLine($"{pos[i]}   {psi[i][0]}");}
 } // Main
 } // class main

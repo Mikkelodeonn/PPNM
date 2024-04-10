@@ -6,7 +6,6 @@ using static QRGS;
 
 public static class roots{
 static public vector newton(Func<vector,vector>f, vector x, double eps=1e-2){
-int n = x.size;
 while(true){
     var J = jacobian(f, x);
     (matrix Q, matrix R) = decomp(J);
