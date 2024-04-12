@@ -19,6 +19,7 @@ return (pos, wave_function);
 } // radial wave function
 
 public static double energy(double rmin, double rmax){ // fix energy(rmin,rmax) -> uendeligt loop (måske?) mødes når roots.newton() kaldes
+                                                        // note: funktionen radial_wave_function() virker, check dette ved at plotte bølgefunktionen. 
 Func<vector,vector> M = delegate(vector e){
     var (pos,psi) = radial_wave_function(e[0], rmax, rmin);
     int n = psi.size;
