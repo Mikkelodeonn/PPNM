@@ -1,6 +1,7 @@
+using System; 
+using System.Math;
 
 public class minimize{
-
 public static matrix hessian(Func<vector,double> phi,vector x){
 	matrix H=new matrix(x.size);
 	double square_eps = Pow(2,-26);
