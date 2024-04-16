@@ -13,8 +13,8 @@ public static matrix hessian(Func<vector,double> phi,vector x){
 		for(int i=0;i<x.size;i++) H[i,j]=ddphi[i]/dx[j];
 		x[j]-=dx;
 	}
-	//return H;
-	return (H+H.T)/2; // you think?
+	//return H; 
+	return (H+H.T)/2; // you think? 
 }
 public static vector gradient(Func<vector,double> phi, vector x){
 vector dphi = new vector(x.size);
