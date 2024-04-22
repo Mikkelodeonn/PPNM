@@ -13,7 +13,7 @@ out.rosenbrock.png: out.txt Makefile
 		set zrange [-1:1e6];\
 		splot\
 			(1-x)**2 + 100*(y-x**2)**2 title "f(x,y) = (1-x)^2 + 100(y-x^2)^2"\
-			,"$<" index 1 with points pt 7 title "found minimum (1,1)";\
+			,"$<" index 2 with points pt 7 title "found minimum (1,1)";\
 		' | tee log.gpi | gnuplot
 
 out.himmelblau.png: out.txt Makefile
@@ -29,7 +29,7 @@ out.himmelblau.png: out.txt Makefile
 		set zrange [-1:3e4];\
 		splot\
 			(x**2+y-11)**2+(x+y**2-7)**2 title "f(x,y) = (x^2+y-11)^2+(x+y^2-7)^2"\
-			,"$<" index 2 with points pt 7 title "found minimum (3,2)";\
+			,"$<" index 3 with points pt 7 title "found minimum (3,2)";\
 		' | tee log.gpi | gnuplot
 
 out.txt: main.exe

@@ -16,9 +16,8 @@ var (pos, wave_function) = RK.driver(schrodinger, (rmin,rmax), sch, acc, eps);
 return (pos, wave_function);
 } // radial wave function
 
-public static double energy(double rmin, double rmax){ // fix energy(rmin,rmax) -> uendeligt loop (måske?) mødes når roots.newton() kaldes
+public static double energy(double rmin, double rmax){ 
 	System.Console.Error.WriteLine("energy started");
-                                                        // note: funktionen radial_wave_function() virker, check dette ved at plotte bølgefunktionen. 
 Func<vector,vector> M = delegate(vector e){
     var (pos,psi) = radial_wave_function(e[0], rmin, rmax);
     int n = psi.size;
@@ -30,7 +29,7 @@ Func<vector,vector> M = delegate(vector e){
     };
 double eps = 1e-2;
 	System.Console.Error.WriteLine("energy: calling roots...");
-var energies = roots.newton(M, new vector(-0.51), eps);
+var energies = roots.newton(M, new vector(-0.5), eps);
 	System.Console.Error.WriteLine("energy exiting...");
 return energies[0]; // return the first energy, i. e. the approximate ground state energy
 } // energy

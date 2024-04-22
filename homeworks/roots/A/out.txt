@@ -1,19 +1,24 @@
 Testing my implementation on Rosenbrock's valley function f(x.y) = (1-x)^2 + 100(y-x^2)^2:
 Extremum is found at:
- (x.y) =          1          1 
-rosenbrock(res1)=  2.47e-05  -9.79e-06 
-ncalls=11174
+ (x.y)   =          1          1 
+x=1.000002548646900 y=1.000005048330860
+Value of the Rosenbrock valley function at found extremum =  2.47e-05  -9.79e-06 
+Initial guess (vector):          2          2 
 Testing my implementation on the Himmelblau function f(x.y) = (x^2+y-11)^2+(x+y^2-7)^2
-start vector:          5          3 
-Minimum is found at:
- (x.y) =          3          2 
-ncalls=41
-himmelblau(res2)=  9.68e-07   6.63e-08 
+Extremum is found at:
+ (x.y)   =          3          2 
+Value of the Himmelblau function at the found extremum =  9.68e-07   6.63e-08 
+Initial guess (vector):          5          3 
 
 
 
 
-1.00000254873177  1.00000504850063    0
+Found coordinates. (x.y.0) for 3d-vizualisation (see .png files):
+
+
+
+
+1.0000025486469  1.00000504833086    0
 
 
 

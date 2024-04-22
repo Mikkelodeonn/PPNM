@@ -7,10 +7,8 @@ out.wave_func.png: out.txt Makefile
 		set ylabel "wave function";\
 		set xlabel "r [bohr radii]";\
 		plot\
-		"$<" index 1 with lines title "-0.5"\
-		,"$<" index 2 with lines title "-0.6"\
-		,"$<" index 3 with lines title "-0.4"\
-		;' | tee log.gpi | gnuplot
+		"$<" index 1 with lines title "calculated";\
+		' | tee log.gpi | gnuplot
 
 out.txt: main.exe
 	mono $< >$@
