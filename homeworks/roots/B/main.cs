@@ -12,7 +12,7 @@ Func<double,vector,vector> schrodinger = (r,y) => {
 };
 double acc = 1e-3;
 double eps = 1e-3;
-var (pos, wave_function) = RK.driver(schrodinger, (rmin,rmax), sch, acc, eps);
+var (pos, wave_function) = RK.driver(schrodinger, (rmin,rmax), sch);
 return (pos, wave_function);
 } // radial wave function
 

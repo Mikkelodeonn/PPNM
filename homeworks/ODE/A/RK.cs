@@ -40,4 +40,20 @@ do{
         }while(true);
 }//driver
 
+public static Func<double,vector> linear_interpolant(genlist<double> x,genlist<vector> y)
+{
+	Func<double,vector> interpolant = delegate(double z){
+		int i=locate_index.binsearch(x,z);
+		double Δx=x[i+1]-x[i];
+		vector Δy=y[i+1]-y[i];
+		return y[i]+Δy/Δx*(z-x[i]);
+	};
+	return interpolant;
+} // linear_interpolant
+public static Func<double,vector> ode_interpolant // returns the linear interpolant of the solution of the ODE driver.
+(Func<double,vector,vector> f,(double,double)interval,vector y,double acc=0.01,double eps=0.01,double hstart=0.01 )
+{
+	var (xlist,ylist) = driver(f,interval,y,acc,eps,hstart);
+	return linear_interpolant(xlist,ylist);
+} // ode_interpolant
 } // class RK

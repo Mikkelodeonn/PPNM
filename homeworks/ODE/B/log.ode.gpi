@@ -1,0 +1,1 @@
+		set terminal png background "white";		set out "Out.simple.int.png";		set xlabel "time [s]";		set ylabel "y";		set title "Linear interpolation of simple harmonic oscillator";		set grid;		plot				"Out.txt" index 2 with lines title "position(t)" 				,"Out.txt" index 3 with lines title "velocity(t)"; 		
