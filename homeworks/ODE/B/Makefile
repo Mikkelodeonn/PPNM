@@ -1,4 +1,4 @@
-all: Out.damped.int.png Out.simple.int.png Out.eliptical.motion.png Out.circular.motion.png
+all: Out.damped.int.png Out.simple.int.png Out.eliptical.motion.png Out.circular.motion.png Out.rel.motion.png
 
 Out.damped.int.png:Out.txt Makefile
 	echo '\
@@ -26,17 +26,6 @@ Out.simple.int.png:Out.txt Makefile
 					,"$<" index 3 with lines title "velocity(t)"; \
 			'|tee log.ode.gpi|gnuplot
 
-Out.eliptical.motion.png:Out.txt Makefile
-	echo '\
-			set terminal png background "white";\
-			set out "$@";\
-			set xlabel "time [s]";\
-			set ylabel "y";\
-			set title "Newtonian eliptical motion (ii)";\
-			plot\
-					"$<" index 4 with lines title "equitorial motion -> [eps=0, u(0)=1, u´(0)=-0.5]"; \
-			'|tee log.ode.gpi|gnuplot
-
 Out.circular.motion.png:Out.txt Makefile
 	echo '\
 			set terminal png background "white";\
@@ -45,7 +34,29 @@ Out.circular.motion.png:Out.txt Makefile
 			set ylabel "y";\
 			set title "Newtonian circular motion (i)";\
 			plot\
-					"$<" index 5 with lines title "equitorial motion -> [eps=0, u(0)=1, u´(0)=0]"; \
+					"$<" index 4 with lines title "equitorial motion -> [eps=0, u(0)=1, u´(0)=0]"; \
+			'|tee log.ode.gpi|gnuplot
+
+Out.eliptical.motion.png:Out.txt Makefile
+	echo '\
+			set terminal png background "white";\
+			set out "$@";\
+			set xlabel "time [s]";\
+			set ylabel "y";\
+			set title "Newtonian eliptical motion (ii)";\
+			plot\
+					"$<" index 5 with lines title "equitorial motion -> [eps=0, u(0)=1, u´(0)=-0.5]"; \
+			'|tee log.ode.gpi|gnuplot
+
+Out.rel.motion.png:Out.txt Makefile
+	echo '\
+			set terminal png background "white";\
+			set out "$@";\
+			set xlabel "time [s]";\
+			set ylabel "y";\
+			set title "Relativistic orbital precession (iii)";\
+			plot\
+					"$<" index 6 with lines title "equatorial motion -> [eps=0.01, u(0)=1, u´(0)=-0.5]"; \
 			'|tee log.ode.gpi|gnuplot
 
 
