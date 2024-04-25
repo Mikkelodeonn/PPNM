@@ -53,19 +53,19 @@ public static void Main(){
   Func<double,vector> f_eliptical = RK.ode_interpolant(newtonian_motion, (0,10), init2);
   Func<double,vector> f_rel = RK.ode_interpolant(relativistic_motion, (0,10), init2);
 
-  for(double i=0.0 ; i<10 ; i+=1.0/16){
-    double u = f_circular(i)[0], phi = f_circular(i)[1];
-    WriteLine($"{(1/u)*Cos(phi)} {(1/u)*Sin(phi)}");
+  for(double φ=0.0 ; φ<10 ; φ+=1.0/16){
+    double u = f_circular(φ)[0], up = f_circular(φ)[1];
+    WriteLine($"{(1/u)*Cos(φ)} {(1/u)*Sin(φ)}");
   }
   WriteLine("\n\n\n");
-  for(double i=0.0 ; i<10 ; i+=1.0/16){
-    double u = f_eliptical(i)[0], phi = f_eliptical(i)[1];
-    WriteLine($"{(1/u)*Cos(phi)} {(1/u)*Sin(phi)}");
+  for(double φ=0.0 ; φ<10 ; φ+=1.0/16){
+    double u = f_eliptical(φ)[0], phi = f_eliptical(φ)[1];
+    WriteLine($"{(1/u)*Cos(φ)} {(1/u)*Sin(φ)}");
   }
   WriteLine("\n\n\n");
-  for(double i=0.0 ; i<10 ; i+=1.0/16){
-    double u = f_rel(i)[0], phi = f_rel(i)[1];
-    WriteLine($"{(1/u)*Cos(phi)} {(1/u)*Sin(phi)}");
+  for(double φ=0.0 ; φ<10 ; φ+=1.0/16){
+    double u = f_rel(φ)[0], phi = f_rel(φ)[1];
+    WriteLine($"{(1/u)*Cos(φ)} {(1/u)*Sin(φ)}");
   }
 } // Main
 } // class main

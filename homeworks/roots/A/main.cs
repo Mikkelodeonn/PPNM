@@ -33,6 +33,7 @@ start=new vector(5,3);
 ncalls=0; var res2 = roots.newton(himmelblau, start);
 WriteLine("Testing my implementation on the Himmelblau function f(x,y) = (x^2+y-11)^2+(x+y^2-7)^2");
 res2.print("Extremum is found at:\n (x,y)   = ");
+System.Console.WriteLine($"x={res2[0]:f15} y={res2[1]:f15}");
 //WriteLine($"ncalls={ncalls}");
 himmelblau(res2).print("Value of the Himmelblau function at the found extremum =");
 start.print("Initial guess (vector): ");

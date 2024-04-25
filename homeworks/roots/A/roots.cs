@@ -27,7 +27,7 @@ dx.print("dx=",file:System.Console.Error);
     x += lambda*dx;
 }
 System.Console.Error.Write($"nsteps={nsteps}\n");
-return new vector(0);
+return x;
 } // newton's method
 public static matrix jacobian(Func<vector,vector>f, vector x){
 int n = x.size;

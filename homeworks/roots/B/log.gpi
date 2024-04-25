@@ -1,0 +1,1 @@
+	set terminal png background "white";	set output "out.wave_func.png";	set ylabel "wave function";	set xlabel "r [bohr radii]";	plot	"out.txt" index 1 with lines title "calculated";	
