@@ -51,20 +51,20 @@ public static void Main(){
   vector init2 = new vector(1, -0.5);
   Func<double,vector> f_circular = RK.ode_interpolant(newtonian_motion, (0,10), init1);
   Func<double,vector> f_eliptical = RK.ode_interpolant(newtonian_motion, (0,10), init2);
-  Func<double,vector> f_rel = RK.ode_interpolant(relativistic_motion, (0,10), init2);
+  Func<double,vector> f_rel = RK.ode_interpolant(relativistic_motion, (0,500), init2);
 
   for(double φ=0.0 ; φ<10 ; φ+=1.0/16){
-    double u = f_circular(φ)[0], up = f_circular(φ)[1];
+    double u = f_circular(φ)[0];
     WriteLine($"{(1/u)*Cos(φ)} {(1/u)*Sin(φ)}");
   }
   WriteLine("\n\n\n");
   for(double φ=0.0 ; φ<10 ; φ+=1.0/16){
-    double u = f_eliptical(φ)[0], phi = f_eliptical(φ)[1];
+    double u = f_eliptical(φ)[0];
     WriteLine($"{(1/u)*Cos(φ)} {(1/u)*Sin(φ)}");
   }
   WriteLine("\n\n\n");
-  for(double φ=0.0 ; φ<10 ; φ+=1.0/16){
-    double u = f_rel(φ)[0], phi = f_rel(φ)[1];
+  for(double φ=0 ; φ<500 ; φ+=1.0/16){
+    double u = f_rel(φ)[0];
     WriteLine($"{(1/u)*Cos(φ)} {(1/u)*Sin(φ)}");
   }
 } // Main
