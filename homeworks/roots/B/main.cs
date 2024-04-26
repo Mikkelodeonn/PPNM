@@ -10,14 +10,13 @@ Func<double,vector,vector> schrodinger = (r,y) => {
 	res[1] = -2*y[0]*(1/r + e);
 	return res;
 };
-double acc = 1e-3;
-double eps = 1e-3;
+//double acc = 1e-3;
+//double eps = 1e-3;
 var (pos, wave_function) = RK.driver(schrodinger, (rmin,rmax), boundary_conditions);
 return (pos, wave_function);
 } // radial wave function
 
 public static double energy(double rmin, double rmax){ 
-	System.Console.Error.WriteLine("energy started");
 Func<vector,vector> M = delegate(vector e){
     var (r,psi) = radial_wave_function(e[0], rmin, rmax);
     vector res = new vector(1);
@@ -25,9 +24,7 @@ Func<vector,vector> M = delegate(vector e){
     return res;
     };
 double eps = 1e-2;
-	System.Console.Error.WriteLine("energy: calling roots...");
 var energies = roots.newton(M, new vector(-1.0), eps);
-	System.Console.Error.WriteLine("energy exiting...");
 return energies[0]; // return the first energy, i. e. the approximate ground state energy
 } // energy
 
@@ -43,5 +40,15 @@ WriteLine("\n\n\n");
 for(int i=0;i<r.size;i++){WriteLine($"{r[i]}    {psi[i][0]}");}
 WriteLine("\n\n\n");
 for(int i=0;i<r.size;i++){WriteLine($"{r[i]}    {r[i]*Exp(-r[i])}");}
+WriteLine("\n\n\n");
+for(double R=0.5;R>1e-4;R-=1.0/32){
+    double E_rmin = energy(R,rmax);
+    WriteLine($"{R} {E_rmin}");
+    }
+WriteLine("\n\n\n");
+for(double R=2.0;R<8.0;R+=1.0/8){
+    double E_rmax = energy(rmin,R);
+    WriteLine($"{R} {E_rmax}");
+    }
 } // Main
 } // class main
