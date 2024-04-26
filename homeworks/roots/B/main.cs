@@ -38,8 +38,10 @@ double rmax = 8.0;
 double E = energy(rmin,rmax);
 var (r,psi) = radial_wave_function(E, rmin, rmax);
 WriteLine($"The lowest energy E0, found for rmin = {rmin} and rmax = {rmax}: {E} Hartree.");
-WriteLine("Exact result: -0.5 Hartree.");
+WriteLine("Exact result: -0.5 Hartree (given in exercise).");
 WriteLine("\n\n\n");
 for(int i=0;i<r.size;i++){WriteLine($"{r[i]}    {psi[i][0]}");}
+WriteLine("\n\n\n");
+for(int i=0;i<r.size;i++){WriteLine($"{r[i]}    {r[i]*Exp(-r[i])}");}
 } // Main
 } // class main
