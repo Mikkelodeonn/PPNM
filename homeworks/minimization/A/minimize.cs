@@ -13,8 +13,8 @@ public static matrix hessian(Func<vector,double> phi,vector x){
 		for(int i=0;i<x.size;i++) H[i,j]=ddphi[i]/dx;
 		x[j]-=dx;
 	}
-	//return H; 
-	return (H+H.T)/2; // you think? 
+	//return H; // works as well, but generally requires more steps for reaching a minima. 
+	return (H+H.T)/2; 
 }
 public static vector gradient(Func<vector,double> phi, vector x){
 vector dphi = new vector(x.size);
@@ -37,8 +37,7 @@ do{ /* Newton's iterations */
 	var (Q,R) = QRGS.decomp(H);   /* QR decomposition */
 	var dx = QRGS.solve(Q,R,-dphi); /* Newton's step */
 	double lambda=1,phix=phi(x);
-    double lambda_min = 0.9, max_steps = 1000;
-    int i = 0;
+    double lambda_min = 0.9;
 	do{ /* linesearch */
 		if( phi(x + lambda * dx) < phix ) break; /* good step: accept */
 		if( lambda < lambda_min ) break; /* accept anyway */
