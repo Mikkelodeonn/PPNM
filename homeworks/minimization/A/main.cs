@@ -21,15 +21,15 @@ var himmelblau_minima = minimize.newton(himmelblau,x0);
 WriteLine("\n------Testing minimization function------\n");
 
 WriteLine("The Rosenbrock valley function -> f(x,y) = (1-x)^2 + 100*(y-x^2)^2:\n");
-rosenbrock_minima.print("Found minimum (x,y): \n");
-x0.print("\nInitial guess (x,y):\n");
-WriteLine($"\nValue of function at found minimum:\n {rosenbrock(rosenbrock_minima)} \n");
+rosenbrock_minima.print("Found minimum (x,y):\n");
+x0.print("Initial guess (x,y):\n");
+WriteLine($"Value of function at found minimum: {rosenbrock(rosenbrock_minima)}");
 WriteLine($"Steps used: {i}\n\n");
 
 WriteLine("The Himmelblau function -> f(x,y) = (x^2+y-11)^2 + (x+y^2-7)^2:\n");
-himmelblau_minima.print("Found minimum (x,y): \n");
-x0.print("\nInitial guess (x,y):\n");
-WriteLine($"\nValue of function at found minimum:\n {himmelblau(himmelblau_minima)} \n");
+himmelblau_minima.print("Found minimum (x,y):\n");
+x0.print("Initial guess (x,y):\n");
+WriteLine($"Value of function at found minimum: {himmelblau(himmelblau_minima)}");
 WriteLine($"Steps used: {j}\n");
 } // Main
 } // main
