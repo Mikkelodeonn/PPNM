@@ -2,10 +2,13 @@
 ------Testing minimization function------
 
 The Rosenbrock valley function -> f(x.y) = (1-x)^2 + 100*(y-x^2)^2:
+
 Found minimum (x.y): 
          1          1 
+
 Initial guess (x.y):
         10         10 
+
 Value of function at found minimum:
  4.69338402286589E-10 
 
@@ -13,11 +16,15 @@ Steps used: 217
 
 
 The Himmelblau function -> f(x.y) = (x^2+y-11)^2 + (x+y^2-7)^2:
+
 Found minimum (x.y): 
          3          2 
+
 Initial guess (x.y):
         10         10 
+
 Value of function at found minimum:
  2.25423849251712E-12 
 
 Steps used: 116
+
