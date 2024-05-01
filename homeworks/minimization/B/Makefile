@@ -5,8 +5,8 @@ Out.higgs.png:Out.txt Makefile
 			set terminal png background "white";\
 			set out "$@";\
 			set ylabel "signal [arb.u.]";\
-			set xlabel "energy [GeV]";\
-			set title "Higgs production signal";\
+			set xlabel "energy [GeV/c^2]";\
+			set title "Higgs boson discovery";\
 			plot\
 				"$<" with lines title "Breit Wigner fit"\
 				,"higgs.data.txt" using 1:2:3 with errorbars title "experimental data";\
