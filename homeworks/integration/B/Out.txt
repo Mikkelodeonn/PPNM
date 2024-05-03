@@ -1,0 +1,12 @@
+
+Various functions numerically integrated from 0 to 1 using Clenshaw-Curtis variable transformation:
+
+Function:                                1/sqrt(x)              ln(x)/sqrt(x)
+Value found:                             1.99999201046432       -3.99987385646141
+Exact value:                             2                      -4
+Evaluations:                             16                     96
+Evalutions without Clenshaw-Curtis:      8572                   8604
+
+Conclusion: 
+Clenshaw-Curtis variable transformation provides a substantial speed-up for evaluating 
+integrals with integrable divergencies at the end-points of the intervals.

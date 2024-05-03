@@ -5,6 +5,8 @@ Values found:     0.66695           1.99996              3.14183                
 
 Values given:     2/3               2                    pi                      -4
 
+Evaluations:      16                8572                 28                      8604
+
 
 
 

@@ -23,8 +23,7 @@ public static double RAI(Func<double,double> f, double a, double b, double acc=0
         double Q2 = RAI(f, (a+b)/2, b, acc/System.Math.Sqrt(2.0), eps, f3, f4);
         return Q1+Q2;
     }
-
-} // RAI
+} // RAI (Recursive Adaptive Integrator)
 public static double erf(double z){
     Func<double,double> f = x => Exp(-x*x);
     Func<double,double> F = t => f(z + (1 - t) /t) /t /t;
@@ -32,5 +31,11 @@ public static double erf(double z){
     if( 0 <= z | z <= 1){return ((2/Sqrt(PI)) * RAI(f, 0, z));}
     if( 1 < z){return (1 - ((2/Sqrt(PI)) * RAI(F, 0, 1)));}
 return 0.0;
-} // erf
+} // erf (error function)
+public static double clenshaw_curtis
+(Func<double,double> f,double a,double b,double acc=1e-3,double eps=1e-3)
+{
+Func<double,double> F = t => f((a+b)/2+(b-a)/2*Cos(t))*Sin(t)*(b-a)/2;
+return RAI(F,0,PI,acc,eps);
+} // clenshaw_curtis (Adaptive integrator based on Clenshaw-Curtis variable transformation)
 } // class integrate
