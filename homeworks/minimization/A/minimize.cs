@@ -1,5 +1,6 @@
 using System; 
 using static System.Math;
+using static System.Console;
 
 public class minimize{
 public static matrix hessian(Func<vector,double> phi,vector x){
@@ -30,21 +31,21 @@ return dphi;
 }
 
 public static vector newton(Func<vector,double> phi, vector x, double acc=1e-3){ // (objective function, starting point, accuracy goal)
-do{ /* Newton's iterations */
+do{ 
 	var dphi = gradient(phi,x);
-	if(dphi.norm() < acc) break; /* job done */
+	if(dphi.norm() < acc) break; 
 	var H = hessian(phi,x);
-	var (Q,R) = QRGS.decomp(H);   /* QR decomposition */
-	var dx = QRGS.solve(Q,R,-dphi); /* Newton's step */
+	var (Q,R) = QRGS.decomp(H);  
+	var dx = QRGS.solve(Q,R,-dphi); 
 	double lambda=1,phix=phi(x);
-    double lambda_min = 0.9;
-	do{ /* linesearch */
-		if( phi(x + lambda * dx) < phix ) break; /* good step: accept */
-		if( lambda < lambda_min ) break; /* accept anyway */
+    double lambda_min = 1.0/1024;
+	do{ 
+		if( phi(x + lambda * dx) < phix ) break; 
+		if( lambda < lambda_min ) break; 
 		lambda /= 2;
 	}while(true);
 	x += lambda*dx;
 }while(true);
 return x;
-}//newton
+} // newton
 } // minimize

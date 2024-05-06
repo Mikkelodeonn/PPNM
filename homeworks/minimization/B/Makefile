@@ -8,7 +8,7 @@ Out.higgs.png:Out.txt Makefile
 			set xlabel "energy [GeV/c^2]";\
 			set title "Higgs boson discovery";\
 			plot\
-				"$<" with lines title "Breit Wigner fit"\
+				"$<" index 1 with lines title "Breit-Wigner fit"\
 				,"higgs.data.txt" using 1:2:3 with errorbars title "experimental data";\
 		'|tee log.gpi|gnuplot
 
