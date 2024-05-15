@@ -7,9 +7,9 @@ Out.ann.png: Out.txt Makefile
 	echo '\
 			set terminal png background "white";\
 			set out "$@";\
-			set title "Neural network curve fitting";\
+			set title "Neural network curve fitting of g(x) = cos(5x-1) exp(-x^2)";\
 			set xlabel "x";\
-			set ylabel "y";\
+			set ylabel "g(x)";\
 			plot\
 				"$<" index 0 with points title "data"\
 				,"$<" index 1 with lines title "fit";\
