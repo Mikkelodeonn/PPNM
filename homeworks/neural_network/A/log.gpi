@@ -1,0 +1,1 @@
+		set terminal png background "white";		set out "Out.ann.png";		set title "Neural network curve fitting";		set xlabel "x";		set ylabel "y";		plot			"Out.txt" index 0 with points title "data"			,"Out.txt" index 1 with lines title "fit";		
