@@ -31,5 +31,7 @@ himmelblau_minima.print("Found minimum (x,y):\n");
 x0.print("Initial guess (x,y):\n");
 WriteLine($"Value of function at found minimum: {himmelblau(himmelblau_minima)}");
 WriteLine($"Steps used: {j}\n");
+
+WriteLine("\nThe finite central difference approximation for the gradient and Hessian matrix \n provide slower convergence than the forward difference approximation but higher precision.");
 } // Main
 } // main

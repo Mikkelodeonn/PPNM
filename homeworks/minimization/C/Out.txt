@@ -1,0 +1,25 @@
+
+------Testing minimization function------
+
+The Rosenbrock valley function -> f(x.y) = (1-x)^2 + 100*(y-x^2)^2:
+
+Found minimum (x.y):
+         1          1 
+Initial guess (x.y):
+        10         10 
+Value of function at found minimum: 2.64064142702783E-14
+Steps used: 924
+
+
+The Himmelblau function -> f(x.y) = (x^2+y-11)^2 + (x+y^2-7)^2:
+
+Found minimum (x.y):
+         3          2 
+Initial guess (x.y):
+        10         10 
+Value of function at found minimum: 1.41378140131744E-14
+Steps used: 213
+
+
+The finite central difference approximation for the gradient and Hessian matrix 
+ provide slower convergence than the forward difference approximation but higher precision.
