@@ -1,1 +1,0 @@
-		set terminal svg background "white";		set output "Out.decay.svg" ;		set title "Activity of ThX as a function of time"; 		set ylabel "Activity [ln(units)]"; 		set xlabel "Time [days]"; 		plot 				"Out.txt" index 1 with lines notitle 				, "data.txt" using 1:2:3 with yerrorbars notitle; 	

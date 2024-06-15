@@ -3,16 +3,16 @@ LIBS = $(addprefix -reference:, $(filter %.dll, $^))
 MKEXE = mcs -target:exe -out:$@ $(LIBS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(LIBS) $(CODE)
 
-Out.decay.svg : Out.txt Makefile
+Out.decay.png : Out.txt Makefile
 	echo '\
-			set terminal svg background "white";\
+			set terminal png background "white";\
 			set output "$@" ;\
 			set title "Activity of ThX as a function of time"; \
-			set ylabel "Activity [ln(units)]"; \
+			set ylabel "Activity [log(units)]"; \
 			set xlabel "Time [days]"; \
 			plot \
-					"$<" index 1 with lines notitle \
-					, "data.txt" using 1:2:3 with yerrorbars notitle; \
+					"$<" index 1 with lines title "least square fit" \
+					, "data.txt" using 1:2:3 with yerrorbars title "data"; \
 		' | tee log.decay.gpi | gnuplot
 
 Out.txt: main.exe

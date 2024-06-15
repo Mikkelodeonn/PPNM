@@ -18,20 +18,23 @@ public static int Main(){
         dlny[i] = dy[i] / y[i];
     }
 
-    x.print("\nTime [days]:");
-    y.print("\nActivity of ThX [relative units]:");
-    dy.print("\nError of the activity (assumed to be 5%):");
-    lny.print("\nLog(y):");
-    dlny.print("\nError of log(y):");
+    x.print("Time [days]:                  ");
+    y.print("Activity of ThX [rel. u.]:    ");
+    dy.print("Error of the activity (5%):   ");
+    lny.print("Log(y):                       ");
+    dlny.print("Error of log(y):              ");
 
     Func<double,double>[] decay_func = new Func<double,double> [] {z => 1, z => -z};
 
     var (coeffs, cov_mat) = lslib.lsfit(decay_func, x, lny, dlny);
 
-    coeffs.print("\nFitting parameters:");
-    cov_mat.print("\nCovariance matrix:");
+    coeffs.print("\nFitting parameters (a,b):\n");
+    //cov_mat.print("Covariance matrix:\n");
 
-    WriteLine("\n Fitting parameter values \n\n");
+    WriteLine($"\nHalf-Life of ThX: ln(2)/b = {Round(Log(2)/coeffs[1],3)} days.");
+    WriteLine("Table value (modern): 3.6 days");
+
+    WriteLine("\n Fitting parameter values (for plotting):\n\n");
     vector y_fit = new vector(y.size);
     for(int j=0 ; j<y.size ; j++){
         y_fit[j] = coeffs[0] - coeffs[1]*x[j];

@@ -1,0 +1,1 @@
+		set terminal png background "white";		set output "Out.decay.png" ;		set title "Activity of ThX as a function of time"; 		set ylabel "Activity [log(units)]"; 		set xlabel "Time [days]"; 		plot 				"Out.txt" index 1 with lines title "least square fit" 				, "data.txt" using 1:2:3 with yerrorbars title "data"; 	
