@@ -1,10 +1,14 @@
 
 Covariance matrix:
+
    0.00089   8.75e-05 
   8.75e-05   1.25e-05 
 
-Fitting parameters:      4.96      0.171 
+Fitting parameters:
+      4.96      0.171 
 Error of fitting parameters:    0.0298    0.00354 
 
 Half-life of ThX: 4.045 +/- 0.0834 days
 Table value: 3.6 days
+
+The error of the half-life of ThX is estimated using the variance formula.
