@@ -20,6 +20,3 @@ Initial guess (x.y):
 Value of function at found minimum: 1.41378140131744E-14
 Steps used: 213
 
-
-The finite central difference approximation for the gradient and Hessian matrix 
- provide slower convergence than the forward difference approximation but higher precision.
