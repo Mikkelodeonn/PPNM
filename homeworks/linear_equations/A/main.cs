@@ -32,19 +32,8 @@ static int Main(){
 
     WriteLine("\n________________________________________________________________________________________________________\nTest of QRGS.det\n");
 
-    double determinant = QRGS.det(R);
-    WriteLine($"Determinant of R:\n det(R) = {determinant}\n");
-
-    WriteLine("\nTask B:");
-
-    WriteLine("\n________________________________________________________________________________________________________\nTest of QRGS.inverse\n");
-    C.print("\nRandom square matrix A:");
-    matrix A_inv = QRGS.inverse(Q_,R_);
-    A_inv.print("\nInverse B of square matrix A:");
-    matrix AA_ = C*A_inv;
-    AA_.print("\nA times it's inverse:");
-    bool AA_I = AA_.approx(matrix.id(AA_.size1));
-    WriteLine($"\nAB approximately equal to identity: {AA_I}\n");
+    double det_R = QRGS.det(R);
+    WriteLine($"Determinant of R:\n {det_R}\n");
 
 return 0;
 } // Main
