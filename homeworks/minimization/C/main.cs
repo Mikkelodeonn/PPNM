@@ -18,7 +18,7 @@ vector x0 = new vector(10,10); // initial guess
 var rosenbrock_minima = minimize.newton(rosenbrock,x0);
 var himmelblau_minima = minimize.newton(himmelblau,x0);
 
-WriteLine("\n------Testing minimization function------\n");
+WriteLine("\n------Testing minimization function (with finite central difference approximation for the gradient and Hessian)------\n");
 
 WriteLine("The Rosenbrock valley function -> f(x,y) = (1-x)^2 + 100*(y-x^2)^2:\n");
 rosenbrock_minima.print("Found minimum (x,y):\n");
