@@ -1,0 +1,1 @@
+		set terminal png background "white";		set out "Out.psi.png";		set grid;		set xrange [-0.1:10];		set xlabel "r [bohr radius]";		set ylabel "f(r) [arbitrary units]";		set title "Hydrogen atom ground state radial wave function";		plot				"Out.txt" index 2 using 1:2 with points pointtype 7 pointsize 0.5 title "calculated"				,"Out.txt" index 2 using 1:3 with lines title "exact";	

@@ -1,6 +1,6 @@
-all: E0_dr.png E0_rmax.png psi.png
+all: Out.E0_dr.png Out.E0_rmax.png Out.psi.png
 
-E0_dr.png:out.txt Makefile
+Out.E0_dr.png:Out.txt Makefile
 	echo '\
 			set terminal png background "white";\
 			set out "$@";\
@@ -10,11 +10,11 @@ E0_dr.png:out.txt Makefile
 			set ylabel "energy [hartree]";\
 			set title "eigenenergy of hydrogen (s-wave) as a function of dr";\
 			plot\
-					"$<" index 1 with linespoints pointtype 6 title "calculated" \
+					"$<" index 0 skip 1 with linespoints pointtype 6 title "calculated" \
 					,-0.5 with lines title "exact";\
 		'| tee log.gpi | gnuplot
 
-E0_rmax.png:out.txt Makefile
+Out.E0_rmax.png:Out.txt Makefile
 	echo '\
 			set terminal png background "white";\
 			set out "$@";\
@@ -24,11 +24,11 @@ E0_rmax.png:out.txt Makefile
 			set ylabel "energy [hartree]";\
 			set title "eigenenergy of hydrogen (s-wave) as a function of rmax";\
 			plot\
-					"$<" index 2 with linespoints pointtype 6 title "calculated" \
+					"$<" index 1 with linespoints pointtype 6 title "calculated" \
 					,-0.5 with lines title "exact";\
 		'| tee log.gpi | gnuplot
 
-psi.png:out.txt Makefile
+Out.psi.png:Out.txt Makefile
 	echo '\
 			set terminal png background "white";\
 			set out "$@";\
@@ -38,19 +38,19 @@ psi.png:out.txt Makefile
 			set ylabel "f(r) [arbitrary units]";\
 			set title "Hydrogen atom ground state radial wave function";\
 			plot\
-					"$<" index 3 using 1:2 with points pointtype 7 pointsize 0.5 title "calculated"\
-					,"$<" index 3 using 1:3 with lines title "exact";\
+					"$<" index 2 using 1:2 with points pointtype 7 pointsize 0.5 title "calculated"\
+					,"$<" index 2 using 1:3 with lines title "exact";\
 		' | tee log.gpi | gnuplot
 
-out.txt: main.exe
+Out.txt: main.exe
 	mono $< >$@
 	sed 's/,/./g' $@ > modified_$@ && mv modified_$@ $@
 
 main.exe: main.cs EVD.dll
 	mcs -target:exe -out:main.exe -reference:EVD.dll main.cs
 
-EVD.dll:EVD.cs matrix.cs vector.cs random.cs
-	mcs -target:library -out:EVD.dll EVD.cs matrix.cs vector.cs random.cs
+EVD.dll:../A/EVD.cs ../A/matrix.cs ../A/vector.cs ../A/random.cs
+	mcs -target:library -out:EVD.dll $^
 
 clean: 
 	$(RM) *.exe *.dll *.png *.gpi [Oo]ut* 
