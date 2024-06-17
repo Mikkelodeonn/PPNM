@@ -76,4 +76,66 @@ public static double quad_integrate(double[] x, double[] y, double[] b, double[]
     double s_int = sum + dx *(y[i]+dx*(b[i]/2+dx*c[i]/3));
 	return s_int;
 } // quad_integrate
+
+public static (double[],double[],double[]) cubic_build(double[] xs, double[] ys){
+int n = xs.Length;
+double [] x = new double[n]; double [] y = new double[n]; 
+double[] b = new double[n]; double[] c = new double[n-1]; double[] d = new double[n-1];
+for(int i=0 ; i<n ; i++){
+    x[i]=xs[i];
+    y[i]=ys[i];
+    }
+double[] h = new double[n-1]; double[] p = new double[n-1]; 
+double[] D = new double[n]; double[] Q = new double[n-1]; double[] B = new double[n]; // building the tridiagonal matrix
+for(int i=0 ; i<n-1 ; i++){
+    h[i] = x[i+1] - x[i];
+    }
+for(int i=0 ; i<n-1 ; i++){
+    p[i] = (y[i+1] - y[i])/h[i];
+    }
+D[0] = 2; Q[0] = 1; B[0] = 3*p[0]; 
+D[n-1] = 2; B[n-1] = 3*p[n-2]; // gauss elimination
+for(int i=0 ; i<n-2 ; i++){
+    D[i+1] = 2*h[i]/h[i+1] + 2; 
+    Q[i+1] = h[i]/h[i+1];
+    B[i+1] = 3*(p[i] + p[i+1] * h[i]/h[i+1]);
+    }
+for(int i=1 ; i<n ; i++){
+    D[i] -= Q[i-1]/D[i-1]; 
+    B[i] -= B[i-1]/D[i-1];
+    }
+b[n-1] = B[n-1]/D[n-1]; // back-substitution
+for(int i=n-2 ; i>=0 ; i--){
+    b[i] = (B[i]-Q[i]*b[i+1])/D[i];
+    }
+for(int i=0 ; i<n-1 ; i++){
+    c[i] = (-2*b[i]-b[i+1]+3*p[i])/h[i]; 
+    d[i] = (b[i]+b[i+1]-2*p[i])/h[i]/h[i];
+    }
+return (b,c,d);
+} // cubic_build
+
+public static double cubic_eval(double[] x, double[] y, double[] b, double[] c, double[] d, double z){
+int i = locate_index.binsearch(x,z);
+double dx = z-x[i];
+return y[i] + dx * (b[i] + dx * (c[i] + dx * d[i]));
+} // qubic_eval
+
+public static double cubic_derivative(double[] x, double[] b, double[] c, double[] d, double z){
+int i = locate_index.binsearch(x,z);
+double dx = z-x[i];
+return b[i] + dx * (2 * c[i] + dx * 3 * d[i]);
+} // cubic_derivative
+
+public static double cubic_integral(double[] x, double [] y, double[] b, double[] c, double[] d, double z){
+int i = locate_index.binsearch(x,z);
+double dx, sum=0;
+for(int j=0 ; j<i ; j++){
+    dx = x[j+1] - x[j];
+    sum += dx * (y[j] + dx * (b[j]/2 + dx * (c[j]/3 + dx * d[j]/4)));
+}
+dx = z - x[i];
+sum += dx * (y[i] + dx * (b[i]/2 + dx * (c[i]/3 + dx * d[i]/4)));
+return sum;
+} // cubic_integral
 } // class interpol

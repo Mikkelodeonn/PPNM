@@ -19,39 +19,18 @@ static int Main(){
         y_int[i] = 1 - Cos(x[i]); 
         WriteLine($"{x[i]} {y_int[i]}");
     }
-    WriteLine("\n\n\n"); //x derivative of sin(x)
-    for(int i=0 ; i<steps ; i++){
-        dy[i] = Cos(x[i]); 
-        WriteLine($"{x[i]} {dy[i]}");
-    }
 
     double n = x[x.Length-1];
 
-    var (b,c) = spline.quad_build(x,y);
-    WriteLine("\n\n\n0:Index 1:Linear spline");
+    WriteLine("\n\n\n"); // linear spline
     for(double j=0 ; j<=n ; j+=1.0/32){
         double s_lin = spline.linear(x,y,j);
         WriteLine($"{j} {s_lin}"); 
     }
-      WriteLine("\n\n\n0:Index 2:Linear integral");
+    WriteLine("\n\n\n"); // linear integral
     for(double j=0 ; j<=n ; j+=1.0/32){
         double s_lin_integral = spline.linear_integrate(x,y,j);
         WriteLine($"{j} {s_lin_integral}"); 
-    }
-      WriteLine("\n\n\n0:Index 3:Quadratic spline");
-    for(double j=0.0 ; j<=n ; j+=1.0/32){
-        double s_quad = spline.quad_eval(x,y,b,c,j);
-        WriteLine($"{j} {s_quad}"); 
-    }
-      WriteLine("\n\n\n0:Index 4:Quadratic integral");
-    for(double j=0.0 ; j<=n ; j+=1.0/32){
-        double s_quad_integral = spline.quad_integrate(x,y,b,c,j);
-        WriteLine($"{j} {s_quad_integral}"); 
-    }
-      WriteLine("\n\n\n0:Index 5:Quadratic derivative");
-    for(double j=0.0 ; j<=n ; j+=1.0/32){
-        double s_quad_derivative = spline.quad_derivative(x,b,c,j);
-        WriteLine($"{j} {s_quad_derivative}"); 
     }
 return 0;
 }
