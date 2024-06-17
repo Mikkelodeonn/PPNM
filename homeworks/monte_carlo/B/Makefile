@@ -1,31 +1,32 @@
-all: out.error.png out.integral.png
+all: Out.error.png Out.integral.png
 
-out.error.png: out.txt Makefile
+Out.error.png: Out.txt Makefile
 	echo '\
 	set terminal png background "white";\
 	set out "$@";\
-	set title "Plain montecarlo integration error";\
-	set xlabel "number of sampling points";\
+	set title "Quasi-random MC integration error";\
+	set xlabel "N[number of sampling points]";\
 	set ylabel "error";\
-	a=1; f(n) = a/sqrt(n);\
+	a=1; f(n) = a/n;\
 	fit f(x) "$<" using 1:4 via a;\
 	plot \
 	"$<" u 1:4 with linespoints title "error"\
-	,f(x) with lines title "1/sqrt(n) fit to actual error"\
-	'| gnuplot
+	,f(x) with lines title "1/N fit";\
+	'| tee log.error.gpi | gnuplot
 
-out.integral.png: out.txt Makefile
+Out.integral.png: Out.txt Makefile
 	echo '\
 	set terminal png background "white";\
 	set out "$@";\
-	set xlabel "number of points";\
+	set xlabel "N[number of sampling points]";\
 	set ylabel "value of the integral";\
+	set title "Quasi-random MC integral value as a function of N";\
 	plot \
-	 "$<" with linespoints title "monte carlo integration"\
+	 "$<" with linespoints title "MC integration"\
 	,pi/4 with lines title "exact"\
-	'| gnuplot
+	'| tee log.int.gpi | gnuplot
 
-out.txt: main.exe
+Out.txt: main.exe
 	>$@
 	for N in $$(seq 200 200 10000);\
 	do echo $$N; mono $< $$N >> $@;\
@@ -39,4 +40,4 @@ vector.dll: vector.cs
 	mcs -target:library -out:$@ $<
 
 clean: 
-	$(RM) *.exe *.dll *.log [Oo]ut*
+	$(RM) *.exe *.dll *.log *.gpi [Oo]ut*

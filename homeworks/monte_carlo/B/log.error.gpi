@@ -1,0 +1,1 @@
+set terminal png background "white";set out "Out.error.png";set title "Quasi-random MC integration error";set xlabel "N[number of sampling points]";set ylabel "error";a=1; f(n) = a/n;fit f(x) "Out.txt" using 1:4 via a;plot "Out.txt" u 1:4 with linespoints title "error",f(x) with lines title "1/N fit";

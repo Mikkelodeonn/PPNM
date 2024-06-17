@@ -1,32 +1,33 @@
-all: out.error.png out.integral.png
+all: Out.error.png Out.integral.png
 
-out.error.png: out.txt Makefile
+Out.error.png: Out.txt Makefile
 	echo '\
 	set terminal png background "white";\
 	set out "$@";\
-	set title "Plain montecarlo integration error";\
-	set xlabel "number of sampling points";\
+	set title "Plain MC integration error (integral from homework)";\
+	set xlabel "N[number of sampling points]";\
 	set ylabel "error";\
 	a=1; f(n) = a/sqrt(n);\
 	fit f(x) "$<" using 1:4 via a;\
 	plot \
 	 "$<" u 1:3 with lines title "statistical estimate of the error"\
-	,"$<" u 1:4 with linespoints title "actual error"\
-	,f(x) with lines title "1/sqrt(n) fit to actual error"\
-	'| gnuplot
+	,"$<" u 1:4 with linespoints title "error"\
+	,f(x) with lines title "1/sqrt(n) fit"\
+	'| tee log.error.gpi | gnuplot
 
-out.integral.png: out.txt Makefile
+Out.integral.png: Out.txt Makefile
 	echo '\
 	set terminal png background "white";\
 	set out "$@";\
-	set xlabel "number of points";\
+	set xlabel "N[number of sampling points]";\
 	set ylabel "value of the integral";\
+	set title "Plain MC integral value as a function of N (integral from homework)";\
 	plot \
-	 "$<" with linespoints title "monte carlo integration"\
-	,pi/4 with lines title "exact"\
-	'| gnuplot
+	 "$<" with linespoints title "MC integration"\
+	,1.3932039296856768591842462603255 with lines title "exact"\
+	'| tee log.int.gpi | gnuplot
 
-out.txt: main.exe
+Out.txt: main.exe
 	>$@
 	for N in $$(seq 200 200 10000);\
 	do echo $$N; mono $< $$N >> $@;\
@@ -40,4 +41,4 @@ vector.dll: vector.cs
 	mcs -target:library -out:$@ $<
 
 clean: 
-	$(RM) *.exe *.dll *.log [Oo]ut*
+	$(RM) *.exe *.dll *.log *.gpi [Oo]ut*
