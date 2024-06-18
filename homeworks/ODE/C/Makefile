@@ -7,9 +7,9 @@ Out.3bodyproblem.png: Out.txt Makefile
 		set ylabel "y";\
 		set yrange [-1:1];\
 		plot\
-				"$<" using 2:3 with lines linewidth 10 lc "dark-spring-green" title "m1" \
-				,"$<" using 6:7 with lines linewidth 5 lc "dark-orange" title "m2" \
-				,"$<" using 10:11 with lines linewidth 2 lc "black" title "m3";\
+				"$<" using 2:3 w l lw 8 lc "dark-spring-green" title "m1" \
+				,"$<" using 6:7 w l lw 5 lc "dark-orange" title "m2" \
+				,"$<" using 10:11 w l lw 2 lc "black" title "m3";\
 	'| tee log.3body.gpi | gnuplot
 
 Out.txt:main.exe
