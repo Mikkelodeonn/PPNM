@@ -1,4 +1,30 @@
-all: Out.txt Out.wave_func.png Out.convergence.max.png Out.convergence.min.png
+all: Out.txt Out.wave_func.png Out.convergence.max.png Out.convergence.min.png Out.acc.png Out.eps.png
+
+Out.acc.png: Out.txt Makefile
+	echo '\
+		set terminal png background "white";\
+		set out "$@";\
+		set xlabel "acc parameter value";\
+		set ylabel "energy [Hartree]";\
+		set title "Convergence with respect to parameter acc";\
+		set xrange [*:*] reverse;\
+		plot\
+			"$<" index 6 with points title "calculated"\
+			,-0.5  with lines ls 2 lw 2 title "exact";\
+	'| tee log.gpi | gnuplot
+
+Out.eps.png: Out.txt Makefile
+	echo '\
+		set terminal png background "white";\
+		set out "$@";\
+		set xlabel "eps parameter value";\
+		set ylabel "energy [Hartree]";\
+		set title "Convergence with respect to parameter eps";\
+		set xrange [*:*] reverse;\
+		plot\
+			"$<" index 5 with points title "calculated"\
+			,-0.5  with lines ls 2 lw 2 title "exact";\
+	'| tee log.gpi | gnuplot
 
 Out.wave_func.png: Out.txt Makefile
 	echo '\
@@ -16,7 +42,7 @@ Out.convergence.min.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set output "$@";\
-		set title "Convergence of solution toward exact result with respect to rmin";\
+		set title "Convergence with respect to rmin";\
 		set ylabel "energy [Hartree]";\
 		set xlabel "rmin [bohr radii]";\
 		set xrange [*:*] reverse;\
@@ -30,7 +56,7 @@ Out.convergence.max.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set output "$@";\
-		set title "Convergence of solution toward exact result with respect to rmax";\
+		set title "Convergence with respect to rmax";\
 		set ylabel "energy [Hartree]";\
 		set xlabel "rmax [bohr radii]";\
 		set xrange [1.5:8.5];\
