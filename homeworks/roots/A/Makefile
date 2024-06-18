@@ -1,6 +1,6 @@
-all: out.txt out.rosenbrock.png out.himmelblau.png
+all: Out.txt Out.rosenbrock.png Out.himmelblau.png
 
-out.rosenbrock.png: out.txt Makefile
+Out.rosenbrock.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set output "$@";\
@@ -16,7 +16,7 @@ out.rosenbrock.png: out.txt Makefile
 			,"$<" index 2 with points pt 7 title "found minimum (1,1)";\
 		' | tee log.gpi | gnuplot
 
-out.himmelblau.png: out.txt Makefile
+Out.himmelblau.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set output "$@";\
@@ -32,7 +32,7 @@ out.himmelblau.png: out.txt Makefile
 			,"$<" index 3 with points pt 7 title "found minimum (3,2)";\
 		' | tee log.gpi | gnuplot
 
-out.txt: main.exe
+Out.txt: main.exe
 	mono $< >$@
 	sed 's/,/./g' $@ > modified_$@ && mv modified_$@ $@
 

@@ -1,6 +1,6 @@
-all: out.txt out.wave_func.png out.convergence.max.png out.convergence.min.png
+all: Out.txt Out.wave_func.png Out.convergence.max.png Out.convergence.min.png
 
-out.wave_func.png: out.txt Makefile
+Out.wave_func.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set output "$@";\
@@ -8,11 +8,11 @@ out.wave_func.png: out.txt Makefile
 		set ylabel "wave function";\
 		set xlabel "r [bohr radii]";\
 		plot\
-		"$<" index 1 with lines lw 2 title "calculated"\
-		, "$<" index 2 with lines lt 4 lw 2 title "exact";\
+		"$<" index 2 with lines lw 6 lc "royalblue" title "exact"\
+		,"$<" index 1 with lines lw 3 lc "dark-orange" title "calculated";\
 		' | tee log.gpi | gnuplot
 
-out.convergence.min.png: out.txt Makefile
+Out.convergence.min.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set output "$@";\
@@ -26,7 +26,7 @@ out.convergence.min.png: out.txt Makefile
 			, -0.5 with lines ls 2 lw 2 title "exact result";\
 		' | tee log.gpi | gnuplot
 
-out.convergence.max.png: out.txt Makefile
+Out.convergence.max.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set output "$@";\
@@ -40,7 +40,7 @@ out.convergence.max.png: out.txt Makefile
 		' | tee log.gpi | gnuplot
 
 
-out.txt: main.exe
+Out.txt: main.exe
 	mono $< >$@
 	sed 's/,/./g' $@ > modified_$@ && mv modified_$@ $@
 
