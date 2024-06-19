@@ -16,7 +16,7 @@ return A;
 }
 public static void Main(){
 
-WriteLine("---------------Testing of the implemented Lanczos tridiagonalization algorithm for real symmetric matrices---------------");
+WriteLine("----------- Testing of the implemented Lanczos tridiagonalization algorithm for real symmetric matrices -----------");
 
 matrix A = CreateRandomSymmetricMatrix(5);
 
@@ -28,7 +28,7 @@ T.print("\nResulting tridiagonal real symmetric matrix T:");
 
 V.print("\nCorresponding (unitary) matrix with orthonormal columns V:"); 
 
-WriteLine("\n---------------Checking the identites of a succesful tridiagonalization -> A = V * T * V^T & T = V^T * A * V---------------");
+WriteLine("\n----------- Checking the identites of a succesful tridiagonalization -> A = V * T * V^T & T = V^T * A * V -----------");
 
 matrix Y = V*T*V.transpose();
 
