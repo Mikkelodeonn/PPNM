@@ -3,20 +3,22 @@ using static System.Console;
 using System;
 public static class diag{
 
-public static (matrix,matrix) lanczos(matrix A, double acc=1e-6){
-int m = A.size1; // number of iterations (default: m=n -> V is unitary)
+public static (matrix,matrix) lanczos(matrix A, int n, double acc=1e-6){ // n -> number of Lanczos/"Arnoldi" iterations
+int m = A.size1; // number of iterations (note: m=n -> V is unitary)
+
+if(!(m >= n)) throw new Exception("Ups! Cannot have more iterations than the dimension of the input...");
 
 vector u = new vector(m); 
 vector v = new vector(m);
 double[][] W = new double[m][];
 
-vector alpha = new vector(m); // diagonal elements of resulting matrix
-vector beta = new vector(m); // "diagonal +/- 1" elements of resulting matrix
+vector alpha = new vector(n); // diagonal elements of resulting matrix
+vector beta = new vector(n); // "diagonal +/- 1" elements of resulting matrix
 
-matrix T = new matrix(m,m); // creating tri-diagonal matrix T.
-matrix V = new matrix(A.size1,m); // creating matrix V.
+matrix T = new matrix(n,n); // creating tri-diagonal matrix T.
+matrix V = new matrix(m,n); // creating matrix V.
 
-for(int i=0 ; i<m ; i++){
+for(int i=0 ; i<n ; i++){
     if(i==0)
     {
         vector q = random.CreateRandomVector(m);
@@ -31,9 +33,9 @@ for(int i=0 ; i<m ; i++){
     {
     double s = 0;
     foreach(double val in W[i-1]){ s += val*val; }
-    beta[i] = Sqrt(s); // beta = norm(w[i-1])
+    beta[i] = Sqrt(s); 
     for(int j=0 ; j<m ; j++){ v[j] = W[i-1][j]/beta[i]; }
-    for(int j=0 ; j<A.size1 ; j++){ V[j,i] = v[j]; }
+    for(int j=0 ; j<m ; j++){ V[j,i] = v[j]; }
     u = A*v;
     alpha[i] = u.dot(v);
     vector a = new vector(m);
@@ -41,10 +43,10 @@ for(int i=0 ; i<m ; i++){
     W[i] = u - alpha[i]*v - beta[i]*a;
     }
     }
-for(int i=0 ; i<m ; i++){ 
+for(int i=0 ; i<n ; i++){ 
     T[i,i] = alpha[i]; 
     if(i>0){ T[i,i-1] = beta[i]; }
-    if(i<m-1){ T[i,i+1] = beta[i+1]; }
+    if(i<n-1){ T[i,i+1] = beta[i+1]; }
     }
 return (V,T);
 } // lanczos
