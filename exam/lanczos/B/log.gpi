@@ -1,0 +1,1 @@
+	set terminal png background "white";	set out "Out.convergence.png";	set title "Convergence of the ground state energy as a function of N";	set ylabel "energy [Hartree]";	set xlabel "N";	set yrange [-1:3];	plot			"Out.txt" with lines title "calculated" 			,-0.5 with lines title "exact";

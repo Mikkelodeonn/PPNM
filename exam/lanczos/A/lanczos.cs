@@ -6,7 +6,7 @@ public static class diag{
 public static (matrix,matrix) lanczos(matrix A, int n, double acc=1e-6){ // n -> number of Lanczos/"Arnoldi" iterations
 int m = A.size1; // number of iterations (note: m=n -> V is unitary)
 
-if(!(m >= n)) throw new Exception("Ups! Cannot have more iterations than the dimension of the input...");
+if(!(m >= n)) throw new Exception("Ups! Cannot have more iterations than the dimension of the input..."); 
 
 vector u = new vector(m); 
 vector v = new vector(m);
