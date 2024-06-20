@@ -33,7 +33,11 @@ WriteLine($"Calculated:    {Round(E0_min,3)} Hartree");
 WriteLine("Exact:         -0.5 Hartree");
 WriteLine($"\ndr =            {dr} Bohr radii");
 WriteLine($"rmax =          {rmax} Bohr radii");
-WriteLine($"rmax/dr =       {n}");
+WriteLine($"N =             {n}");
+
+var (V8,T8) = diag.lanczos(H,8);
+WriteLine("\nAn example of the tridiagonal representation T of the Hamiltonian with n<N:");
+T8.print("\nT(n=8) =");
 WriteLine("\n\n\n");
 
 WriteLine("# of Lanczos iterations n:    Found ground state energy E0:");
