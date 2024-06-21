@@ -1,4 +1,4 @@
-all: Out.E0_dr.png Out.E0_rmax.png Out.psi1.png Out.psi2.png
+all: Out.E0_dr.png Out.E0_rmax.png Out.psi0.png Out.psi234.png
 
 Out.E0_dr.png:Out.txt Makefile
 	echo '\
@@ -10,7 +10,7 @@ Out.E0_dr.png:Out.txt Makefile
 			set ylabel "energy [hartree]";\
 			set title "eigenenergy of hydrogen (s-wave) as a function of dr";\
 			plot\
-					"$<" index 4 with linespoints pointtype 6 title "calculated" \
+					"$<" index 6 with linespoints pointtype 6 title "calculated" \
 					,-0.5 with lines title "exact";\
 		'| tee log.gpi | gnuplot
 
@@ -24,11 +24,11 @@ Out.E0_rmax.png:Out.txt Makefile
 			set ylabel "energy [hartree]";\
 			set title "eigenenergy of hydrogen (s-wave) as a function of rmax";\
 			plot\
-					"$<" index 3 with linespoints pointtype 6 title "calculated" \
+					"$<" index 5 with linespoints pointtype 6 title "calculated" \
 					,-0.5 with lines title "exact";\
 		'| tee log.gpi | gnuplot
 
-Out.psi1.png:Out.txt Makefile
+Out.psi0.png:Out.txt Makefile
 	echo '\
 			set terminal png background "white";\
 			set out "$@";\
@@ -42,7 +42,7 @@ Out.psi1.png:Out.txt Makefile
 					,"$<" index 1 skip 1 using 1:3 with lines title "exact";\
 		' | tee log.gpi | gnuplot
 
-Out.psi2.png:Out.txt Makefile
+Out.psi234.png:Out.txt Makefile
 	echo '\
 			set terminal png background "white";\
 			set out "$@";\
