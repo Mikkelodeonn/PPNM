@@ -1,4 +1,4 @@
-Out.multiplot.png: Out.txt Makefile
+Out.jacobi+lanczos.png: Out.txt Makefile
 	echo '\
 		set terminal pngcairo size 2000,800 background "white";\
 		set output "$@";\
