@@ -16,7 +16,7 @@ return A;
 }
 public static void Main(){
 
-WriteLine("---- Testing of Lanczos tridiagonalization algorithm for an arb. real symmetric matrix with dim. n=5 & # of iterations m=5 ----");
+WriteLine("---- Testing of Lanczos tridiagonalization algorithm for an arb. real symmetric matrix with dim. N=5 & # of iterations m=5 ----");
 
 matrix A1 = CreateRandomSymmetricMatrix(5);
 
@@ -49,7 +49,7 @@ WriteLine($"\nMatrix A is equal to V * T * V^T (within acc=1e-6): {A_check1}");
 WriteLine("\n================================================================================================================================");
 WriteLine("================================================================================================================================\n");
 
-WriteLine("---- Testing of Lanczos tridiagonalization algorithm for an arb. real symmetric matrix with dim. n=5 & # of iterations m=3 ----");
+WriteLine("---- Testing of Lanczos tridiagonalization algorithm for an arb. real symmetric matrix with dim. N=5 & # of iterations m=3 ----");
 
 matrix A2 = CreateRandomSymmetricMatrix(5);
 
@@ -77,7 +77,7 @@ Y2.print("\nA = V * T * V^T:");
 
 bool A_check2 = A2.approx(Y2, acc:1e-6);
 
-WriteLine($"\nMatrix A is equal to V * T * V^T (within acc=1e-6): {A_check2} (this is ONLY true for n=m, when V is unitary)");
+WriteLine($"\nMatrix A is equal to V * T * V^T (within acc=1e-6): {A_check2} (this is ONLY true for N=m, when V is unitary)");
 
 } // Main
 } // class main
