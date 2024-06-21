@@ -53,7 +53,8 @@ Out.psi2.png:Out.txt Makefile
 			set title "The 2nd & 3rd radial s-wave functions of the Hydrogen atom";\
 			plot\
 					"$<" index 2 skip 1 using 1:2 with points pointtype 7 pointsize 0.5 title "n = 2"\
-					,"$<" index 3 skip 1 using 1:2 with points pointtype 7 pointsize 0.5 title "n = 3";\
+					,"$<" index 3 skip 1 using 1:2 with points pointtype 7 pointsize 0.5 title "n = 3"\
+					,"$<" index 4 skip 1 using 1:2 with points pointtype 7 pointsize 0.5 title "n = 4";\
 		' | tee log.gpi | gnuplot
 
 Out.txt: main.exe
