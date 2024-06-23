@@ -1,0 +1,59 @@
+Testing the Jacobi eigenvalue algorithm on arb. NxN matrix with/without Lanczos tridiagonalization
+
+Randomly generated real symmetric NxN matrix A (N=10):
+     0.109      0.926       0.97       0.97      0.947       0.38      0.998      0.418      0.726      0.485 
+     0.926      0.963      0.656      0.318      0.171      0.325      0.785      0.815      0.481     0.0184 
+      0.97      0.656      0.253      0.251      0.488     0.0162      0.699      0.425      0.882     0.0251 
+      0.97      0.318      0.251    0.00452      0.578      0.655      0.782      0.053      0.636      0.981 
+     0.947      0.171      0.488      0.578      0.873     0.0406      0.516      0.676      0.445     0.0196 
+      0.38      0.325     0.0162      0.655     0.0406      0.453      0.609      0.799      0.644      0.162 
+     0.998      0.785      0.699      0.782      0.516      0.609      0.712      0.168      0.301      0.473 
+     0.418      0.815      0.425      0.053      0.676      0.799      0.168      0.675      0.596      0.706 
+     0.726      0.481      0.882      0.636      0.445      0.644      0.301      0.596      0.964     0.0622 
+     0.485     0.0184     0.0251      0.981     0.0196      0.162      0.473      0.706     0.0622      0.264 
+
+Tridiagonal matrix T found by Lanczos iterations on A:
+      3.62       2.41          0          0          0          0          0          0          0          0 
+      2.41       1.65       1.22          0          0          0          0          0          0          0 
+         0       1.22     -0.275      0.466          0          0          0          0          0          0 
+         0          0      0.466   -0.00948      0.758          0          0          0          0          0 
+         0          0          0      0.758     -0.161      0.659          0          0          0          0 
+         0          0          0          0      0.659     -0.621      0.476          0          0          0 
+         0          0          0          0          0      0.476     0.0971      0.664          0          0 
+         0          0          0          0          0          0      0.664     -0.117      0.319          0 
+         0          0          0          0          0          0          0      0.319       0.27      0.327 
+         0          0          0          0          0          0          0          0      0.327      0.818 
+
+Eigenvalues found using Jacobi eigenvalue algorithm WITHOUT tridiagonalization (i.e. eigenvalues of matrix A):
+     -1.45      -1.22     -0.747     -0.313      0.149      0.624       0.82       1.01       1.08       5.32 
+
+Eigenvalues found using Jacobi eigenvalue algorithm WITH tridiagonalization (i.e. eigenvalues of matrix T):
+      3.62      -1.45      -1.03     -0.703      -0.24      0.241      0.682      0.888       1.01       2.26 
+
+The Jacobi eigenvalue algorithm yields identical eigenvalues with & without Lanczos tridiagonalization of a random symmetric 10x10 matrix: False
+Comparison of the running time and precision of the reg./tuned jacobi algorithm with & without Lanczos iterations used on the Hydrogen atom from exersize B:
+
+Evaluation of the running time of the algorithms:
+
+Running time of reg. Jacobi algorithm on H: t1 = 31922 clock ticks
+Running time of reg. jacobi algorithm on T: t2 = 34021 clock ticks
+Running time of tuned jacobi algorithm on T: t3 = 28504 clock ticks
+Fractional time difference between the fastest and slowest implementation: t1/t3 = 1 (i.e. the tuned algorithm spent 1/7'th of the time on the problem).
+Number of Lanczos iterations used: n = 3*N/5 = 47 (i.e. 3/5 the size of the hydrogenic Hamiltonian matrix)
+
+Evaluation of the precision of the algorithms:
+
+Ground state energy found with the reg. Jacobi algorithm on H:         -0.4968 Hartree
+Ground state energy found with the reg. Jacobi algorithm on T:   -0.4968 Hartree
+Ground state energy found with the tuned Jacobi algorithm on T:   -65.7855 Hartree
+Exact ground state energy:                                          -0.5 Hartree
+
+Conclusion:
+The Jacobi eigenvalue algorithm can be tuned to take advantage of the tridiagonalization from the Lanczos algorithm.
+
+Parameters used for the calculation:
+rmax = 8 Bohr radii
+dr = 0.1 Bohr radii
+Dimensions of the Hydrogenic Hamiltonian matrix: 79x79
+Dimensions of the T-matrix used to approximate the Hamiltonian after the Lnaczos algorithm: 39x39
+

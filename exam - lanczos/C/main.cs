@@ -25,6 +25,7 @@ T.print("\nTridiagonal matrix T found by Lanczos iterations on A:");
 
 var (Y,X) = EVD.cyclic(A);
 var (B,C) = EVD.cyclic(T);
+var (M,W) = EVD.cyclic_tuned(T);
 vector Aeigenvals = new vector(Y.size1);
 for(int i=0 ; i<Y.size1 ; i++){
         Aeigenvals[i] = Y[i,i];
@@ -34,14 +35,13 @@ vector Teigenvals = new vector(B.size1);
 for(int i=0 ; i<B.size1 ; i++){
         Teigenvals[i] = B[i,i];
     }
-Aeigenvals.print("\nEigenvalues found using Jacobi eigenvalue algorithm WITHOUT tridiagonalization (i.e. eigenvalues of matrix A):\n");
-
-Teigenvals.print("\nEigenvalues found using Jacobi eigenvalue algorithm WITH tridiagonalization (i.e. eigenvalues of matrix T):\n");
+Aeigenvals.print("\nEigenvalues found using reg. Jacobi algorithm WITHOUT tridiagonalization (i.e. eigenvalues of matrix A):\n");
+Teigenvals.print("\nEigenvalues found using reg. Jacobi algorithm WITH tridiagonalization (i.e. eigenvalues of matrix T):\n");
 
 bool TA_check = Teigenvals.approx(Aeigenvals);
-WriteLine($"\nThe Jacobi eigenvalue algorithm yields identical eigenvalues with & without Lanczos tridiagonalization of a random symmetric 10x10 matrix: {TA_check}");
+WriteLine($"\nThe reg. Jacobi eigenvalue algorithm yields identical eigenvalues with & without Lanczos tridiagonalization: {TA_check}");
 WriteLine("\n================================================================================================================================\n");
-WriteLine("Comparison of the running time and precision of the jacobi algorithm with & without Lanczos iterations used on the Hydrogen atom from exersize B:\n");
+WriteLine("Comparison of the running time and precision of the reg./tuned jacobi algorithm with & without Lanczos iterations used on the Hydrogen atom from exersize B:\n");
 double rmax = 8; double dr = 0.1;
 int N = (int)(rmax/dr)-1;
 vector r = new vector(N);
@@ -60,7 +60,7 @@ for(int i=0;i<N;i++){ H[i,i]+=-1/r[i]; }
 var timer2 = new Stopwatch();
 
 timer2.Start();
-var (V_H2,T_H2) = diag.lanczos(H,H.size1/2);
+var (V_H2,T_H2) = diag.lanczos(H, H.size1/2);
 var (E_H2,F_H2) = EVD.cyclic(T_H2);
 timer2.Stop();
 
@@ -106,7 +106,7 @@ WriteLine("\nParameters used for the calculation:");
 WriteLine("rmax = 8 Bohr radii");
 WriteLine("dr = 0.1 Bohr radii");
 WriteLine($"Dimensions of the Hydrogenic Hamiltonian matrix: {H.size1}x{H.size2}");
-WriteLine($"Dimensions of the T-matrix used to approximate the Hamiltonian after the Lnaczos algorithm: {H.size1/2}x{H.size2/2}\n");
+WriteLine($"Dimensions of the T-matrix used to approximate the Hamiltonian after the Lanczos algorithm: {H.size1/2}x{H.size2/2}\n");
 
 WriteLine("================================================================================================================================\n");
 WriteLine("Testing the convergence of the lowest eigenvalue found by the Jacobi algorithm tuned by the Lanczos algorithm for various values of the # of Lanczos iterations n:");

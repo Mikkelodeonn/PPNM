@@ -1,7 +1,9 @@
 using System;
 using static System.Console;
 using static System.Math;
+
 public static class EVD{
+
 public static void bigskip(){
     WriteLine("\n\n\n\n\n");
 }
