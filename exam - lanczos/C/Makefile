@@ -9,7 +9,7 @@ Out.jacobi+lanczos.png: Out.txt Makefile
 		set ylabel "y(n) [arb.u.]";\
 		set xlabel "# of Lanczos iterations/dimension of T-matrix [n]";\
 		set title "Convergence of Lanczos tuned Jacobi algorithm as a function of n for multiple input matrices (of dim. N)";\
-		set x2label "( y(n) = 1-(E_{0,regular} / E_{0,vanilla}) )";\
+		set x2label "( y(n) = 1-(E_{0,tuned} / E_{0,regular}) )";\
 		set xrange [0:30];\
 		set grid;\
 		plot\

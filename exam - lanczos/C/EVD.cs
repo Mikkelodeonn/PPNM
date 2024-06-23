@@ -14,7 +14,7 @@ public static void timesJ(matrix A, int p, int q, double theta){
 		A[i,p]=c*aip-s*aiq;
 		A[i,q]=s*aip+c*aiq;
 		}
-} // timesJ
+} // timesJ (regular)
 public static void Jtimes(matrix A, int p, int q, double theta){
 	double c=Cos(theta),s=Sin(theta);
 	for(int j=0;j<A.size1;j++){
@@ -22,7 +22,7 @@ public static void Jtimes(matrix A, int p, int q, double theta){
 		A[p,j]= c*apj+s*aqj;
 		A[q,j]=-s*apj+c*aqj;
 		}
-} // Jtimes
+} // Jtimes (regular)
 public static (matrix, matrix) cyclic(matrix A){
 if(A.size1 != A.size2) throw new Exception("Matrix has dumb dimensions");
 int n = A.size1;
@@ -47,7 +47,7 @@ do{
 	}
 }while(changed);
 return (A,V);
-} // cyclic
+} // cyclic (regular)
 public static (double,matrix) hydrogen_s_wave(double rmax, double dr){
 int n = (int)(rmax/dr)-1;
 vector r = new vector(n);

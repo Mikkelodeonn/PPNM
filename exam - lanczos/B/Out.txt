@@ -9,7 +9,7 @@ N =             79
 
 An example of the tridiagonal representation T of the Hamiltonian with n<N:
 
-T(n=8) =
+T(n=8)=
       26.4       57.2          0          0          0          0          0          0 
       57.2        148       41.3          0          0          0          0          0 
          0       41.3        102       49.5          0          0          0          0 

@@ -37,7 +37,7 @@ WriteLine($"N =             {n}");
 
 var (V8,T8) = diag.lanczos(H,8);
 WriteLine("\nAn example of the tridiagonal representation T of the Hamiltonian with n<N:");
-T8.print("\nT(n=8) =");
+T8.print("\nT(n=8)=");
 WriteLine("\n\n\n");
 
 WriteLine("# of Lanczos iterations n:    Found ground state energy E0:");
