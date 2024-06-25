@@ -1,7 +1,9 @@
 using System;
 using static System.Console;
 using static System.Math;
+
 public static class EVD{
+
 public static void bigskip(){
     WriteLine("\n\n\n\n\n");
 }
@@ -47,27 +49,23 @@ do{
 }while(changed);
 return (A,V);
 } // cyclic (regular)
-public static void timesJ_tuned(matrix A, int p, int q, double theta){
+public static void timesJ_tuned(matrix A, int p, int q, double theta) {
 	double c=Cos(theta),s=Sin(theta);
-	for (int i = 0; i < A.size1; i++) {
-		if (i == p || i == q || i == p - 1 || i == p + 1 || i == q - 1 || i == q + 1) {
-            double aip = A[i, p], aiq = A[i, q];
-            A[i, p] = c * aip - s * aiq;
-            A[i, q] = s * aip + c * aiq;
+	for(int i=0;i<A.size1;i++){
+		double aip=A[i,p],aiq=A[i,q];
+		A[i,p]=c*aip-s*aiq;
+		A[i,q]=s*aip+c*aiq;
 		}
-	}
-} // timesJ (tuned)
-public static void Jtimes_tuned(matrix A, int p, int q, double theta){
+}
+public static void Jtimes_tuned(matrix A, int p, int q, double theta) {
 	double c=Cos(theta),s=Sin(theta);
-	for (int j = 0; j < A.size1; j++) {
-			if (j == p || j == q || j == p - 1 || j == p + 1 || j == q - 1 || j == q + 1) {
-            double apj = A[p, j], aqj = A[q, j];
-            A[p, j] = c * apj + s * aqj;
-            A[q, j] = -s * apj + c * aqj;
+	for(int j=0;j<A.size2;j++){
+		double apj=A[p,j],aqj=A[q,j];
+		A[p,j]= c*apj+s*aqj;
+		A[q,j]= c*aqj-s*apj;
 		}
-	}
-} // Jtimes (tuned)
-public static (matrix, matrix) cyclic_tuned(matrix Q){
+}
+public static (matrix,matrix) cyclic_tuned(matrix Q){
 matrix A = Q.copy();
 if(A.size1 != A.size2) throw new Exception("Matrix has dumb dimensions");
 int n = A.size1;
@@ -75,26 +73,24 @@ matrix V = matrix.id(n);
 bool changed;
 do{
 	changed=false;
-	for(int p=1 ; p<n-1 ; p++){
-	for(int q=p+1 ; q<n ; q++){
-		if (Abs(A[p, q]) > 1e-10) {
+	for(int p=0 ; p<n-1 ; p++){
+		//for(int q=p+1 ; q<n ; q++){
+		int q=p+1;
 		double apq=A[p,q], app=A[p,p], aqq=A[q,q];
-		double theta=0.5*Atan2(2*apq,aqq-app);
-		double c=Cos(theta),s=Sin(theta);
-		double new_app=c*c*app-2*s*c*apq+s*s*aqq;
-		double new_aqq=s*s*app+2*s*c*apq+c*c*aqq;
+		double theta=0.5*Atan2(2*apq, aqq-app);
+		double c = Cos(theta), s = Sin(theta);
+		double new_app = c * c * app - 2 * s * c * apq + s * s * aqq;
+		double new_aqq = s * s * app + 2 * s * c * apq + c * c * aqq;
 		if(new_app!=app || new_aqq!=aqq) // do rotation
 			{
 			changed=true;
-			timesJ_tuned(A,p,q, theta); // A←A*J 
-			Jtimes_tuned(A,p,q,-theta); // A←JT*A 
-			timesJ_tuned(V,p,q, theta); // V←V*J
+			Jtimes(A, p, q, -theta); // A←JT*A 
+			timesJ(A, p, q, theta); // A←A*J 
+			timesJ(V, p, q, theta); // V←V*J
 			}
-		}
-	}
 	}
 }while(changed);
-return (A,V);
+return (A,V); // A -> diagonal matrix
 } // cyclic (tuned)
 public static (double,matrix) hydrogen_s_wave(double rmax, double dr){
 int n = (int)(rmax/dr)-1;

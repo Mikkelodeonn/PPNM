@@ -28,6 +28,12 @@ T1.print("\nResulting tridiagonal real symmetric matrix T:");
 
 V1.print("\nCorresponding matrix with orthonormal columns V:"); 
 
+WriteLine("\nChecking for correct dimensions:\n");
+WriteLine($"Dim. of A: {A1.size1} x {A1.size2}  (N x N)");
+WriteLine($"Dim. of T: {T1.size1} x {T1.size2}  (n X n)");
+WriteLine($"Dim. of V: {V1.size1} x {V1.size2}  (N x n)");
+
+
 WriteLine("\n---- Checking the identites of a succesful tridiagonalization, i.e. A = V * T * V^T   &   T = V^T * A * V ----");
 
 matrix Y1 = V1*T1*V1.transpose();
@@ -60,6 +66,11 @@ A2.print("\nRandomly generated symmetric matrix A:");
 T2.print("\nResulting tridiagonal real symmetric matrix T:");
 
 V2.print("\nCorresponding matrix with orthonormal columns V:"); 
+
+WriteLine("\nChecking for correct dimensions:\n");
+WriteLine($"Dim. of A: {A2.size1} x {A2.size2}  (N x N)");
+WriteLine($"Dim. of T: {T2.size1} x {T2.size2}  (n x n)");
+WriteLine($"Dim. of V: {V2.size1} x {V2.size2}  (N x n)");
 
 WriteLine("\n---- Checking the identites of a succesful tridiagonalization, i.e. A = V * T * V^T   &   T = V^T * A * V ----");
 
