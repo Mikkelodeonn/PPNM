@@ -19,16 +19,18 @@ explored in exercise C). Finally, I plotted the convergence of the ground state 
 
 C) Check whether Jacobi eigenvalue algorithm can be tuned to take advantage of the tridiagonal form of a matrix.
 
-To check this I rewrote my cyclic sweep Jacobi routine to only perform rotations on the non-zero elements of a tridiagonal matrix. Then I confirmed that 
-the regular and tuned Jacobi algorithms both produced similar/correct eigenvalues of an arb. NxN matrix. 
+To check this I rewrote my cyclic sweep Jacobi routine to only perform rotations on the non-zero off-diagonal elements of a tridiagonal matrix. Then 
+I confirmed that the regular and tuned Jacobi algorithms both produced similar/correct eigenvalues of an arb. NxN matrix (I compared extreme eigenvalues 
+i.e. lowest/highest eignvalues). 
 
 To check whether the tuned Jacobi was faster I computed eigenvalues of matrices of increasing dimension, recorded the running time and compared. 
 I varied the dimension of the input matrix in order to estimate the time complexity and varied the number Lanczos iterations done while building matrix T 
 to show a potential speed up. This was justified by the investigation of the convergence of the lowest eigenvalue of matrices of increasing dimension as a 
-function Lanczos iterations n (both for the reg. and tuned Jacobi algorithms) to display the validity of the approximation for n<N. Finally, I chose a 
-value for n (4N/5) and compared the running times for the reg. Jacobi on a real symmetric matrix and the tridiagonal matrix T with the tuned Jacobi 
-algorithm on matrix T. This showed that the Jacobi algorithm is O(n) faster when tuned for a tridiagonal matrix. The time complexity was improved 
-from O(n^3) to O(n^2), which is indicated by the fits on the figure. 
+function of Lanczos iterations n (both for the reg. and tuned Jacobi algorithms) to display the validity of the approximation for n<N. 
+
+Finally, I chose a value for n (4N/5) and compared the running times for the reg. Jacobi on a real symmetric matrix and the tridiagonal matrix T 
+with the tuned Jacobi algorithm on matrix T. This showed that the Jacobi algorithm is O(n) faster when tuned for a tridiagonal matrix. The time 
+complexity was improved from O(n^3) to O(n^2), which is indicated by the fits on the figure.
 
 Self-evaluation: I believe that I have fulfilled the requirements of the exercise and presented my work in a clear way, thus evaluating my own
 performance as earning 10/10 points. 

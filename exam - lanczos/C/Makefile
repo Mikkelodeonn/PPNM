@@ -112,4 +112,4 @@ main.exe:main.cs lanczos.dll
 	mcs -target:exe -out:main.exe -reference:lanczos.dll main.cs 
 
 clean:
-	$(RM) *.exe *.dll *.txt *.gpi [Oo]ut* 
+	$(RM) *.exe *.dll *.txt *.gpi *.log [Oo]ut*

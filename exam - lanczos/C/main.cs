@@ -18,7 +18,7 @@ return A;
 public static void Main(){
 WriteLine("Testing the reg./tuned Jacobi eigenvalue algorithms on arb. NxN matrix with/without Lanczos tridiagonalization\n");
 matrix A = CreateRandomSymmetricMatrix(10);
-matrix a1, a2, a3; a1 = A.copy(); a2 = A.copy(); 
+matrix a1, a2; a1 = A.copy(); a2 = A.copy(); 
 A.print("Randomly generated real symmetric NxN matrix A (N=10):");
 
 var (V,T) = diag.lanczos(a1, a1.size1);
@@ -42,15 +42,15 @@ vector Meigenvals = new vector(M.size1);
 for(int i=0 ; i<M.size1 ; i++){
         Meigenvals[i] = M[i,i];
     }
-Aeigenvals.print("\nEigenvalues found using reg. Jacobi algorithm WITHOUT tridiagonalization (i.e. eigenvalues of matrix A):\n");
-Teigenvals.print("\nEigenvalues found using reg. Jacobi algorithm WITH tridiagonalization (i.e. eigenvalues of matrix T):\n");
-Meigenvals.print("\nEigenvalues found using tuned Jacobi algorithm WITH tridiagonalization (i.e. eigenvalues of matrix T):\n");
-
+//Aeigenvals.print("\nEigenvalues found using reg. Jacobi algorithm WITHOUT tridiagonalization (i.e. eigenvalues of matrix A):\n");
+//Teigenvals.print("\nEigenvalues found using reg. Jacobi algorithm WITH tridiagonalization (i.e. eigenvalues of matrix T):\n");
+//Meigenvals.print("\nEigenvalues found using tuned Jacobi algorithm WITH tridiagonalization (i.e. eigenvalues of matrix T):\n");
+WriteLine("\nComparing extreme eigenvalues:\n");
 WriteLine("Comparison of largest eigenvalues found:");
 WriteLine($"Reg. Jacobi on A: {Round(Aeigenvals[Aeigenvals.size-1],2)}");
 WriteLine($"Reg. Jacobi on T: {Round(Aeigenvals[Teigenvals.size-1],2)}");
 WriteLine($"Tuned Jacobi on T: {Round(Meigenvals[Meigenvals.size-1],2)}");
-WriteLine("Comparison of smallest eigenvalues found:");
+WriteLine("\nComparison of smallest eigenvalues found:");
 WriteLine($"Reg. Jacobi on A: {Round(Aeigenvals[0],2)}");
 WriteLine($"Reg. Jacobi on T: {Round(Aeigenvals[0],2)}");
 WriteLine($"Tuned Jacobi on T: {Round(Meigenvals[0],2)}");
