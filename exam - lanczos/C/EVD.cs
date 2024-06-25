@@ -49,22 +49,6 @@ do{
 }while(changed);
 return (A,V);
 } // cyclic (regular)
-public static void timesJ_tuned(matrix A, int p, int q, double theta) {
-	double c=Cos(theta),s=Sin(theta);
-	for(int i=0;i<A.size1;i++){
-		double aip=A[i,p],aiq=A[i,q];
-		A[i,p]=c*aip-s*aiq;
-		A[i,q]=s*aip+c*aiq;
-		}
-}
-public static void Jtimes_tuned(matrix A, int p, int q, double theta) {
-	double c=Cos(theta),s=Sin(theta);
-	for(int j=0;j<A.size2;j++){
-		double apj=A[p,j],aqj=A[q,j];
-		A[p,j]= c*apj+s*aqj;
-		A[q,j]= c*aqj-s*apj;
-		}
-}
 public static (matrix,matrix) cyclic_tuned(matrix Q){
 matrix A = Q.copy();
 if(A.size1 != A.size2) throw new Exception("Matrix has dumb dimensions");
@@ -92,30 +76,4 @@ do{
 }while(changed);
 return (A,V); // A -> diagonal matrix
 } // cyclic (tuned)
-public static (double,matrix) hydrogen_s_wave(double rmax, double dr){
-int n = (int)(rmax/dr)-1;
-vector r = new vector(n);
-for(int i=0;i<n;i++){
-    r[i]=dr*(i+1);
-    }
-matrix H = new matrix(n,n);
-for(int i=0;i<n-1;i++){
-   H[i,i]  =-2*(-0.5/dr/dr);
-   H[i,i+1]= 1*(-0.5/dr/dr);
-   H[i+1,i]= 1*(-0.5/dr/dr);
-  }
-H[n-1,n-1]=-2*(-0.5/dr/dr);
-for(int i=0;i<n;i++){
-    H[i,i]+=-1/r[i];
-    }
-(matrix A, matrix V) = cyclic(H);
-double E0 = double.PositiveInfinity;
-for(int i=0;i<n;i++){
-    if(A[i,i] < E0){
-        E0 = A[i,i];
-    }
-}
-return (E0,V);
-} // hydrogen_s_wave
-
 } // EVD
