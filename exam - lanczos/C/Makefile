@@ -78,7 +78,7 @@ Out.lanczos+jacobi.tuned.png: Out.txt Makefile
 
 Out.runningtime.comparison.png: Out.txt Makefile
 	echo '\
-			set terminal pngcairo size 1000,800 background "white";\
+			set terminal pngcairo size 800,600 background "white";\
 			set output "$@";\
 			set ylabel "Running time [clock ticks]";\
 			set xlabel "Dimension of initial matrix [N]";\
