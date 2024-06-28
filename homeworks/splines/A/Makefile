@@ -9,10 +9,10 @@ Out.linear_spline.png:Out.txt Makefile
 			set yrange [-1.5:3.5];\
 			set title "Linear spline interpolation of sin(x)"; \
 			plot \
-					"$<" index 0 with points pointtype 6 title "Sin(x)" \
-					,"$<" index 1 with points pointtype 6 title "integral of Sin(x)" \
-					,"$<" index 2 skip 1 with lines title "Linear spline" \
-					,"$<" index 3 skip 1 with lines title "Integral of linear spline"; \
+					"$<" index 0 with points pointtype 6 title "sin(x)" \
+					,"$<" index 1 with points pointtype 6 title "integral of sin(x)" \
+					,"$<" index 2 skip 1 with lines title "linear spline" \
+					,"$<" index 3 skip 1 with lines title "integral of linear spline"; \
 		'| tee log.spline.gpi | gnuplot
 
 Out.txt:main.exe
