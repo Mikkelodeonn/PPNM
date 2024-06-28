@@ -12,7 +12,7 @@ Func<double,double> f2 = z => -z/2*(2-z/2)*Exp(-z/2);
 Func<double,double> f3 = z => 1/Sqrt(24)*z*Exp(-z/2);
 vector r = new vector(n);
 for(int i=0;i<n;i++){ r[i] = deltaR*(i+1); }
-WriteLine($"The lowest eigenvalue (i.e. the ground state energy) of Hydrogen is found as\nCalculated: {Round(E,3)} Hartree \nExact: -0.5 Hartree\nrmax = {R} Bohr radii\ndr = {deltaR} Bohr radii\n\n");
+WriteLine($"The lowest eigenvalue (i.e. the ground state energy) of Hydrogen is found as\nCalculated: {Round(E,3)} Hartree \nExact: -0.5 Hartree\n\nrmax = {R} Bohr radii\ndr = {deltaR} Bohr radii\n# of points = {R/(deltaR)-1}\n\n");
 WriteLine("1st eigenfunction of the hydrogen atom:");
 WriteLine($"{0} {0} {0}");
 for(int i=0;i<99;i++){
@@ -43,7 +43,7 @@ foreach(double rmax in rmax_E0){
     WriteLine($"{rmax}  {e0}");
 }
 EVD.bigskip();
-double rmax_fixed = 6; double[] dr_E0 = {0.02, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3};
+double rmax_fixed = 8; double[] dr_E0 = {0.02, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3};
 foreach(double dr in dr_E0){
     (double e0, matrix v) = EVD.hydrogen_s_wave(rmax_fixed, dr);
     WriteLine($"{dr}    {e0}");

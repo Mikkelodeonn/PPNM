@@ -1,4 +1,5 @@
 Task A: Test of implementation of Jacobi diagonalization (with cyclic sweeps):
+
 Random symmetric matrix A:
      0.249      0.111      0.467      0.772 
      0.111      0.658      0.433      0.354 
@@ -10,40 +11,42 @@ Diagonal matrix D with corresponding eigenvalues:
   1.66e-16      0.425   1.23e-09  -4.08e-14 
  -1.16e-16   1.23e-09      0.778   3.01e-16 
  -2.33e-09  -4.08e-14   3.15e-16       1.76 
+
 Orthogonal matrix V of eigenvectors:
      0.752     -0.348     -0.303      0.471 
      0.208      0.847      0.223      0.436 
     -0.272     -0.401      0.666      0.567 
     -0.564     0.0419     -0.644      0.516 
 -----------------------------------------------------------------
-
-Matrix product VDV:
+Matrix product VDV(T):
      0.249      0.111      0.467      0.772 
      0.111      0.658      0.433      0.354 
      0.467      0.433      0.944      0.101 
      0.772      0.354      0.101      0.642 
 
-VDV == A: True (with precision of order 1e-6).
+VDV(T) == A: True (with precision of order 1e-6).
 -----------------------------------------------------------------
-Matrix product VAV:
+Matrix product V(T)AV:
     -0.468   1.98e-16  -2.78e-17  -2.33e-09 
   1.68e-16      0.425   1.23e-09  -4.08e-14 
  -5.55e-17   1.23e-09      0.778   3.33e-16 
  -2.33e-09  -4.08e-14   3.33e-16       1.76 
-VAV == D: True (with precision of order 1e-6).
+
+V(T)AV == D: True (with precision of order 1e-6).
 -----------------------------------------------------------------
 Matrix product V(T) * V:
          1    5.2e-17   2.22e-16          0 
    5.2e-17          1   1.32e-16  -3.47e-17 
   2.22e-16   1.32e-16          1  -1.11e-16 
          0  -3.47e-17  -1.11e-16          1 
+
 V(T) * V = Identity: True (with precision of order 1e-6).
 -----------------------------------------------------------------
-
 Matrix product V * V(T):
          1  -5.55e-17   2.78e-16          0 
  -5.55e-17          1  -1.11e-16  -5.55e-17 
   2.78e-16  -1.11e-16          1   1.67e-16 
          0  -5.55e-17   1.67e-16          1 
+
 V * V(T) = Identity: True (with precision of order 1e-6).
 -----------------------------------------------------------------

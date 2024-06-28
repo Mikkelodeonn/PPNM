@@ -6,9 +6,9 @@ Out.E0_dr.png:Out.txt Makefile
 			set out "$@";\
 			set grid;\
 			set yrange [-0.501:-0.487];\
-			set xlabel "dr [bohr radius]";\
-			set ylabel "energy [hartree]";\
-			set title "eigenenergy of hydrogen (s-wave) as a function of dr";\
+			set xlabel "dr [Bohr radius]";\
+			set ylabel "energy [Hartree]";\
+			set title "Ground state energy of Hydrogen as a function of dr (rmax = 8 Bohr radii)";\
 			plot\
 					"$<" index 6 with linespoints pointtype 6 title "calculated" \
 					,-0.5 with lines title "exact";\
@@ -20,9 +20,9 @@ Out.E0_rmax.png:Out.txt Makefile
 			set out "$@";\
 			set grid;\
 			set yrange [-0.55:-0.1];\
-			set xlabel "rmax [bohr radius]";\
-			set ylabel "energy [hartree]";\
-			set title "eigenenergy of hydrogen (s-wave) as a function of rmax";\
+			set xlabel "rmax [Bohr radius]";\
+			set ylabel "energy [Hartree]";\
+			set title "Ground state energy of Hydrogen as a function of rmax (dr = 0.1 Bohr radii)";\
 			plot\
 					"$<" index 5 with linespoints pointtype 6 title "calculated" \
 					,-0.5 with lines title "exact";\
@@ -35,7 +35,7 @@ Out.psi0.png:Out.txt Makefile
 			set grid;\
 			set xrange [-0.1:10];\
 			set xlabel "r [bohr radius]";\
-			set ylabel "f(r) [arbitrary units]";\
+			set ylabel "f(r) [arb.u.]";\
 			set title "Hydrogen atom ground state radial wave function";\
 			plot\
 					"$<" index 1 skip 1 using 1:2 with points pointtype 7 pointsize 0.5 title "calculated"\
@@ -49,7 +49,7 @@ Out.psi234.png:Out.txt Makefile
 			set grid;\
 			set xrange [-0.1:10];\
 			set xlabel "r [bohr radius]";\
-			set ylabel "f(r) [arbitrary units]";\
+			set ylabel "f(r) [arb.u.]";\
 			set title "The 2nd, 3rd & 4th radial s-wave functions of the Hydrogen atom";\
 			plot\
 					"$<" index 2 skip 1 using 1:2 with points pointtype 7 pointsize 0.5 title "n = 2"\

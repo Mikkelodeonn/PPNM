@@ -8,8 +8,8 @@ Out.times.png:Out.txt Makefile
 		f(x) = a*x*x*x;\
 		fit f(x) "Out.txt" via a;\
 		plot\
-				"$<" with points title "Data(decomp. times)"\
-				,f(x) title "Fit (f(x)=a*n^3)";\
+				"$<" with points title "Data"\
+				,f(x) title "n^3 fit";\
 	'| tee log.gpi | gnuplot
 
 Out.txt:main.exe
@@ -22,4 +22,4 @@ main.exe:main.cs matrix.dll
 	mcs -target:exe -out:main.exe -reference:matrix.dll main.cs ../A/qrgs.cs ../A/random.cs
 
 clean:
-	$(RM) *.exe *.dll [Oo]ut*
+	$(RM) *.exe *.dll [Oo]ut* *.log *.gpi

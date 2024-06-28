@@ -24,7 +24,10 @@ static int Main(){
 
     vector b = random.CreateRandomVector(5); matrix C = random.CreateRandomMatrix(5,5);
     C.print("Random square matrix:");
+    b.print("\nRandom vector b:\n");
     (matrix Q_, matrix R_) = QRGS.decomp(C); vector x = QRGS.solve(Q_,R_,b);
+    Q_.print("\nCorresponding Q-matrix:");
+    R_.print("\nCorresponding R-matrix:");
     x.print("\nSolution to QRx=b:\n x = ");
     vector Ax = C*x;
     Ax.print("\nA*x:"); b.print("b:");

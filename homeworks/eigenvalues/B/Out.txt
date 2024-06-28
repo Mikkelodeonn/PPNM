@@ -3,8 +3,10 @@ Task B: Hydrogen atom. s-wave radial Schrodinger equation on a grid
 The lowest eigenvalue (i.e. the ground state energy) of Hydrogen is found as
 Calculated: -0.499 Hartree 
 Exact: -0.5 Hartree
+
 rmax = 10 Bohr radii
 dr = 0.1 Bohr radii
+# of points = 99
 
 
 1st eigenfunction of the hydrogen atom:
@@ -448,10 +450,10 @@ dr = 0.1 Bohr radii
 
 
 
-0.02    -0.499226891059405
-0.05    -0.498962641845558
-0.1    -0.498023340106855
-0.15    -0.496473062475781
-0.2    -0.494333917499431
-0.25    -0.491635468480035
-0.3    -0.488413497045488
+0.02    -0.49992508959513
+0.05    -0.499662859997556
+0.1    -0.498730787451367
+0.15    -0.497190271977148
+0.2    -0.49507053391152
+0.25    -0.492394223401372
+0.3    -0.489187566857397
