@@ -44,13 +44,13 @@ Q1.print("\nT = V^T * A * V:");
 
 bool T_check1 = T1.approx(Q1, acc:1e-6);
 
-WriteLine($"\nMatrix T is equal to V^T * A * V (within acc=1e-6): {T_check1}");
+WriteLine($"\nMatrix T is equal to V^T * A * V (acc = 1e-6): {T_check1}");
 
 Y1.print("\nA = V * T * V^T:");
 
 bool A_check1 = A1.approx(Y1, acc:1e-6);
 
-WriteLine($"\nMatrix A is equal to V * T * V^T (within acc=1e-6): {A_check1}");
+WriteLine($"\nMatrix A is equal to V * T * V^T (acc = 1e-6): {A_check1}");
 
 WriteLine("\n================================================================================================================================");
 WriteLine("================================================================================================================================\n");
@@ -82,13 +82,13 @@ Q2.print("\nT = V^T * A * V:");
 
 bool T_check2 = T2.approx(Q2, acc:1e-6);
 
-WriteLine($"\nMatrix T is equal to V^T * A * V (within acc=1e-6): {T_check2}");
+WriteLine($"\nMatrix T is equal to V^T * A * V (acc=1e-6): {T_check2}");
 
 Y2.print("\nA = V * T * V^T:");
 
 bool A_check2 = A2.approx(Y2, acc:1e-6);
 
-WriteLine($"\nMatrix A is equal to V * T * V^T (within acc=1e-6): {A_check2} (this is ONLY true for N=m, when V is unitary)");
+WriteLine($"\nMatrix A is equal to V * T * V^T (acc=1e-6): {A_check2} (this is ONLY true for N=m, when V is unitary)");
 
 } // Main
 } // class main

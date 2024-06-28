@@ -10,8 +10,8 @@ Out.lanczos+jacobi.png: Out.txt Makefile
 		set origin 0.5, 0;\
 		set ylabel "y(n) [arb.u.]";\
 		set xlabel "# of Lanczos iterations/dimension of T-matrix [n]";\
-		set title "Lowest eigenvalue convergence of the reg. Jacobi algorithm on tridiag. matrix T as a function of n";\
-		set x2label "for multiple arb. N-dimensional matrices   ( Note: y(n) = 1-(E_{0,T}(n) / E_{0}) )";\
+		set title "Lowest eigenvalue convergence with reg. Jacobi algorithm on tridiag. matrix T as a function of n";\
+		set x2label "for multiple arb. NxN matrices   ( Note: y(n) = 1-(E_{0,T}(n) / E_{0}) )";\
 		set xrange [0:30];\
 		set grid;\
 		plot\
@@ -22,7 +22,7 @@ Out.lanczos+jacobi.png: Out.txt Makefile
 		\
 		set ylabel "Running time [clock ticks]";\
 		set xlabel "Dimension of input matrix [N]";\
-		set title "Runningtime of the reg. Jacobi eigenvalue algorithm with/without tridiagonalization";\
+		set title "Runningtime of reg. Jacobi eigenvalue algorithm with/without tridiagonalization";\
 		set x2label "for various # of Lanczos iterations n";\
 		set grid;\
 		set size 0.5, 1;\
@@ -49,7 +49,7 @@ Out.lanczos+jacobi.tuned.png: Out.txt Makefile
 		set ylabel "y(n) [arb.u.]";\
 		set xlabel "# of Lanczos iterations/dimension of T-matrix [n]";\
 		set title "Lowest eigenvalue convergence of the tuned Jacobi algorithm on tridiag. matrix T as a function of n";\
-		set x2label "for multiple arb. N-dimensional matrices ( Note: y(n) = 1-(E_{0,tuned}(n) / E_{0}) )";\
+		set x2label "for multiple arb. NxN matrices ( Note: y(n) = 1-(E_{0,tuned}(n) / E_{0}) )";\
 		set xrange [0:30];\
 		set grid;\
 		plot\
@@ -61,7 +61,7 @@ Out.lanczos+jacobi.tuned.png: Out.txt Makefile
 		set ylabel "Running time [clock ticks]";\
 		set xlabel "Dimension of initial matrix [N]";\
 		set title "Runningtime of the regular/tuned Jacobi eigenvalue algorithm";\
-		set x2label " on matrices A & T respectively, for various # of Lanczos iterations n";\
+		set x2label " on matrices A and T respectively, for various # of Lanczos iterations n";\
 		set grid;\
 		set size 0.5, 1;\
 		set origin 0, 0;\
@@ -83,7 +83,7 @@ Out.runningtime.comparison.png: Out.txt Makefile
 			set ylabel "Running time [clock ticks]";\
 			set xlabel "Dimension of initial matrix [N]";\
 			set title "Running time comparison (reg. Jacobi on A and T + tuned Jacobi on T)";\
-			set x2label "T: tridiag. matrix with n = (4/5)N	   A: real symmetric matrix of dim. N";\
+			set x2label "T: tridiag. n x n matrix (n = 4N/5)	   A: real symmetric NxN matrix";\
 			set grid;\
 			set key top left;\
 			f1(x) = a1*x*x*x;\

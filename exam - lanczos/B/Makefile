@@ -2,7 +2,7 @@ Out.convergence.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set out "$@";\
-		set title "Convergence of the ground state energy as a function of n";\
+		set title "Convergence of the ground state energy of Hydrogen as a function of n";\
 		set ylabel "energy [Hartree]";\
 		set xlabel "n";\
 		set yrange [-1:27];\

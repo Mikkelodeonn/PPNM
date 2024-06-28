@@ -21,7 +21,7 @@ C) Check whether Jacobi eigenvalue algorithm can be tuned to take advantage of t
 
 To check this I rewrote my cyclic sweep Jacobi routine to only perform rotations on the non-zero off-diagonal elements of a tridiagonal matrix. Then 
 I confirmed that the regular and tuned Jacobi algorithms both produced similar/correct eigenvalues of an arb. NxN matrix (I compared extreme eigenvalues 
-i.e. lowest/highest eignvalues). 
+i.e. lowest/highest eigenvalues). 
 
 To check whether the tuned Jacobi was faster I computed eigenvalues of matrices of increasing dimension, recorded the running time and compared. 
 I varied the dimension of the input matrix in order to estimate the time complexity and varied the number Lanczos iterations done while building matrix T 
