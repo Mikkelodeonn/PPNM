@@ -1,5 +1,4 @@
-
-out.txt: main.exe
+Out.txt: main.exe
 	mono $< >$@
 	sed 's/,/./g' $@ > modified_$@ && mv modified_$@ $@
 

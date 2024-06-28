@@ -9,7 +9,7 @@ Out.higgs.png:Out.txt Makefile
 			set title "Higgs boson discovery";\
 			plot\
 				"$<" index 1 with lines title "Breit-Wigner fit"\
-				,"higgs.data.txt" using 1:2:3 with errorbars title "experimental data";\
+				,"higgs.data.txt" using 1:2:3 with errorbars title "experimental data + errors";\
 		'|tee log.gpi|gnuplot
 
 Out.txt: main.exe
