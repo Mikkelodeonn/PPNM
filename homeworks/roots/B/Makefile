@@ -4,7 +4,7 @@ Out.acc.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set out "$@";\
-		set xlabel "acc parameter value";\
+		set xlabel "acc";\
 		set ylabel "energy [Hartree]";\
 		set title "Convergence with respect to parameter acc";\
 		set xrange [*:*] reverse;\
@@ -17,7 +17,7 @@ Out.eps.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set out "$@";\
-		set xlabel "eps parameter value";\
+		set xlabel "eps";\
 		set ylabel "energy [Hartree]";\
 		set title "Convergence with respect to parameter eps";\
 		set xrange [*:*] reverse;\
@@ -48,8 +48,8 @@ Out.convergence.min.png: Out.txt Makefile
 		set xrange [*:*] reverse;\
 		set yrange [-1:-0.4];\
 		plot\
-			"$<" index 3 with points pt 13 title "calculated energy (rmax=8.0)"\
-			, -0.5 with lines ls 2 lw 2 title "exact result";\
+			"$<" index 3 with points pt 13 title "calculated (rmax=8.0)"\
+			, -0.5 with lines ls 2 lw 2 title "exact";\
 		' | tee log.gpi | gnuplot
 
 Out.convergence.max.png: Out.txt Makefile
@@ -61,8 +61,8 @@ Out.convergence.max.png: Out.txt Makefile
 		set xlabel "rmax [bohr radii]";\
 		set xrange [1.5:8.5];\
 		plot\
-			"$<" index 4 with points pt 13 title "calculated energy (rmin=1e-4)"\
-			, -0.5 with lines ls 2 lw 2 title "exact result";\
+			"$<" index 4 with points pt 13 title "calculated (rmin=1e-4)"\
+			, -0.5 with lines ls 2 lw 2 title "exact";\
 		' | tee log.gpi | gnuplot
 
 

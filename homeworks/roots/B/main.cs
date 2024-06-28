@@ -36,8 +36,9 @@ double acc = 0.01;
 
 double E = energy(rmin,rmax,eps,acc);
 var (r,psi) = radial_wave_function(E, rmin, rmax,eps,acc);
-WriteLine($"The lowest energy E0, found for rmin = {rmin} and rmax = {rmax}: {E} Hartree.");
-WriteLine("Exact result: -0.5 Hartree (given in exercise).");
+WriteLine($"The ground state energy found for rmin = {rmin} and rmax = {rmax} with acc = {acc}:");
+WriteLine($"Calculated:    {E} Hartree");
+WriteLine("Exact:         -0.5 Hartree (given in exercise).");
 WriteLine("\n\n\n");
 for(int i=0;i<r.size;i++){WriteLine($"{r[i]}    {psi[i][0]}");}
 WriteLine("\n\n\n");
