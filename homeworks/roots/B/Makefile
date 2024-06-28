@@ -6,7 +6,7 @@ Out.acc.png: Out.txt Makefile
 		set out "$@";\
 		set xlabel "acc";\
 		set ylabel "energy [Hartree]";\
-		set title "Convergence with respect to parameter acc";\
+		set title "Convergence with respect to acc";\
 		set xrange [*:*] reverse;\
 		plot\
 			"$<" index 6 with points title "calculated"\
@@ -19,7 +19,7 @@ Out.eps.png: Out.txt Makefile
 		set out "$@";\
 		set xlabel "eps";\
 		set ylabel "energy [Hartree]";\
-		set title "Convergence with respect to parameter eps";\
+		set title "Convergence with respect to eps";\
 		set xrange [*:*] reverse;\
 		plot\
 			"$<" index 5 with points title "calculated"\

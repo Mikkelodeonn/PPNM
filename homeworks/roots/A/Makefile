@@ -4,7 +4,7 @@ Out.rosenbrock.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set output "$@";\
-		set title "Rosenbrock valley function";\
+		set title "Rosenbrock Valley function";\
 		set xlabel "x";\
 		set ylabel "y";\
 		set zlabel "z";\
