@@ -5,7 +5,7 @@ Out.error.png: Out.txt Makefile
 	set terminal png background "white";\
 	set out "$@";\
 	set title "Quasi-random MC integration error";\
-	set xlabel "N[number of sampling points]";\
+	set xlabel "N[sampling points]";\
 	set ylabel "error";\
 	a=1; f(n) = a/n;\
 	fit f(x) "$<" using 1:4 via a;\
@@ -18,7 +18,7 @@ Out.integral.png: Out.txt Makefile
 	echo '\
 	set terminal png background "white";\
 	set out "$@";\
-	set xlabel "N[number of sampling points]";\
+	set xlabel "N[sampling points]";\
 	set ylabel "value of the integral";\
 	set title "Quasi-random MC integral value as a function of N";\
 	plot \

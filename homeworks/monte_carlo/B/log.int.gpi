@@ -1,1 +1,1 @@
-set terminal png background "white";set out "Out.integral.png";set xlabel "N[number of sampling points]";set ylabel "value of the integral";set title "Quasi-random MC integral value as a function of N";plot  "Out.txt" with linespoints title "MC integration",pi/4 with lines title "exact"
+set terminal png background "white";set out "Out.integral.png";set xlabel "N[sampling points]";set ylabel "value of the integral";set title "Quasi-random MC integral value as a function of N";plot  "Out.txt" with linespoints title "MC integration",pi/4 with lines title "exact"
