@@ -4,13 +4,14 @@ Error of the activity (5%):         5.85          5        4.4        3.6       
 Log(y):                             4.76       4.61       4.48       4.28       3.97       3.38       3.23       2.72       2.41 
 Error of log(y):                    0.05       0.05       0.05       0.05       0.05       0.05       0.05       0.05       0.05 
 
-Fitting parameters (a.b):
-      4.96      0.171 
+Found fitting parameters:
+a = 4.95866865452411
+b = 0.171379430616683
 
 Half-Life of ThX: ln(2)/b = 4.045 days.
 Table value (modern): 3.6 days
 
- Fitting parameter values (for plotting):
+ Fit func. values with found fitting parameters (for plotting):
 
 
 1  119.975700195713

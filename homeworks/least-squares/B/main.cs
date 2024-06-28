@@ -28,13 +28,17 @@ public static int Main(){
         fit_err[i] = Sqrt(cov_mat[i,i]);
     }
 
-    cov_mat.print("\nCovariance matrix:\n");
-    coeffs.print("\nFitting parameters:\n");
-    fit_err.print("Error of fitting parameters:");
+    WriteLine("Data and corresponding errors are the same as stated in exercise A.");
+    cov_mat.print("\nCovariance matrix:");
+    //coeffs.print("\nFitting parameters:\n");
+    WriteLine("\nFound fitting parameters + errors obtained from the covariance matrix:");
+    WriteLine($"a = {Round(coeffs[0],4)} +/- {Round(fit_err[0],4)}");
+    WriteLine($"b = {Round(coeffs[1],4)} +/- {Round(fit_err[1],4)}");
+    //fit_err.print("Error of fitting parameters:");
     WriteLine($"\nHalf-life of ThX: {Round(Log(2)/coeffs[1],3)} +/- {Round((Log(2)*Abs(fit_err[1]))/(coeffs[1]*coeffs[1]),4)} days");
     WriteLine("Table value: 3.6 days");
 
-    WriteLine("\nThe error of the half-life of ThX is estimated using the variance formula.");
+    WriteLine("\nThe error of the half-life of ThX is estimated using the variance formula with the errors obtained for the individual fitting parameters.");
 
 return 0;
 }

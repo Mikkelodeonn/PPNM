@@ -28,13 +28,16 @@ public static int Main(){
 
     var (coeffs, cov_mat) = lslib.lsfit(decay_func, x, lny, dlny);
 
-    coeffs.print("\nFitting parameters (a,b):\n");
+    //coeffs.print("\nFitting parameters (a,b):\n");
+    WriteLine("\nFound fitting parameters:");
+    WriteLine($"a = {coeffs[0]}");
+    WriteLine($"b = {coeffs[1]}");
     //cov_mat.print("Covariance matrix:\n");
 
     WriteLine($"\nHalf-Life of ThX: ln(2)/b = {Round(Log(2)/coeffs[1],3)} days.");
     WriteLine("Table value (modern): 3.6 days");
 
-    WriteLine("\n Fitting parameter values (for plotting):\n\n");
+    WriteLine("\n Fit func. values with found fitting parameters (for plotting):\n\n");
     vector y_fit = new vector(y.size);
     for(int j=0 ; j<y.size ; j++){
         y_fit[j] = Exp(coeffs[0] - coeffs[1]*x[j]);
