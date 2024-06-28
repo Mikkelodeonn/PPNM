@@ -2,9 +2,9 @@ Out.times.png:Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set out "$@";\
-		set ylabel "time [arb. u.]";\
-		set xlabel "N [arb. u.]";\
-		set title "Time elapsed during QR-decomp. of NxN matrix";\
+		set ylabel "time [arb.u.]";\
+		set xlabel "N [arb.u.]";\
+		set title "Time elapsed during QR-decomp. of arb. NxN matrix";\
 		f(x) = a*x*x*x;\
 		fit f(x) "Out.txt" via a;\
 		plot\

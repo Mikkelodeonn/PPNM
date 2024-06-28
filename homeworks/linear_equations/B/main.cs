@@ -7,8 +7,8 @@ static int Main(){
 
     WriteLine("\n________________________________________________________________________________________________________\nTest of QRGS.inverse()\n");
     C.print("\nRandom square matrix A:");
-    Q_.print("\nCorresponding Q-matrix:");
-    R_.print("\nCorresponding R-matrix:");
+    Q_.print("\nCorresponding Q matrix:");
+    R_.print("\nCorresponding R matrix:");
     matrix A_inv = QRGS.inverse(Q_,R_);
     A_inv.print("\nInverse A' of square matrix A:");
     matrix AA_ = C*A_inv;

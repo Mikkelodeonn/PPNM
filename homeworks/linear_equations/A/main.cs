@@ -12,10 +12,10 @@ static int Main(){
     Q.print("\nQ-matrix:"); R.print("\nR-matrix:");
 
     matrix Q_transposed = Q.transpose(); matrix B = Q_transposed * Q;
-    B.print("\nQ.transposed times Q:");
+    B.print("\nQ(T) times Q:");
 
     bool identity = B.approx(matrix.id(3));
-    WriteLine($"\nQ.transposed times Q is approximately equal to identity: {identity}");
+    WriteLine($"\nQ(T) times Q is approximately equal to identity: {identity}");
 
     matrix QR = Q*R; bool QRA = QR.approx(A);
     QR.print("\nQ times R:"); WriteLine($"\nQR is approximately equal to A: {QRA}");

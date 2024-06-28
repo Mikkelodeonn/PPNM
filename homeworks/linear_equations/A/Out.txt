@@ -24,12 +24,12 @@ R-matrix:
          0       1,13      0,238 
          0          0      0,579 
 
-Q.transposed times Q:
+Q(T) times Q:
          1   2,78e-16   1,94e-16 
   2,78e-16          1          0 
   1,94e-16          0          1 
 
-Q.transposed times Q is approximately equal to identity: True
+Q(T) times Q is approximately equal to identity: True
 
 Q times R:
      0,249      0,111      0,467 
