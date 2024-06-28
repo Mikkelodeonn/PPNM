@@ -23,7 +23,7 @@ matrix VDV = V * D * V.transpose();
 VDV.print("Matrix product VDV(T):");
 
 bool VDV_A = A.approx(VDV);
-WriteLine($"\nVDV(T) == A: {VDV_A} (with precision of order 1e-6).");
+WriteLine($"\nVDV(T) = A: {VDV_A} (with precision of order 1e-6).");
 
 WriteLine("-----------------------------------------------------------------");
 
@@ -31,7 +31,7 @@ matrix VAV = V.transpose() * A * V;
 VAV.print("Matrix product V(T)AV:");
 
 bool VAV_D = D.approx(VAV);
-WriteLine($"\nV(T)AV == D: {VAV_D} (with precision of order 1e-6).");
+WriteLine($"\nV(T)AV = D: {VAV_D} (with precision of order 1e-6).");
 
 WriteLine("-----------------------------------------------------------------");
 

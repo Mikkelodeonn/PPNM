@@ -8,7 +8,7 @@ Out.E0_dr.png:Out.txt Makefile
 			set yrange [-0.501:-0.487];\
 			set xlabel "dr [Bohr radius]";\
 			set ylabel "energy [Hartree]";\
-			set title "Ground state energy of Hydrogen as a function of dr (rmax = 8 Bohr radii)";\
+			set title "Ground-state energy of Hydrogen as a function of dr (rmax = 8 Bohr radii)";\
 			plot\
 					"$<" index 6 with linespoints pointtype 6 title "calculated" \
 					,-0.5 with lines title "exact";\
@@ -22,7 +22,7 @@ Out.E0_rmax.png:Out.txt Makefile
 			set yrange [-0.55:-0.1];\
 			set xlabel "rmax [Bohr radius]";\
 			set ylabel "energy [Hartree]";\
-			set title "Ground state energy of Hydrogen as a function of rmax (dr = 0.1 Bohr radii)";\
+			set title "Ground-state energy of Hydrogen as a function of rmax (dr = 0.1 Bohr radii)";\
 			plot\
 					"$<" index 5 with linespoints pointtype 6 title "calculated" \
 					,-0.5 with lines title "exact";\

@@ -24,7 +24,7 @@ Matrix product VDV(T):
      0.467      0.433      0.944      0.101 
      0.772      0.354      0.101      0.642 
 
-VDV(T) == A: True (with precision of order 1e-6).
+VDV(T) = A: True (with precision of order 1e-6).
 -----------------------------------------------------------------
 Matrix product V(T)AV:
     -0.468   1.98e-16  -2.78e-17  -2.33e-09 
@@ -32,7 +32,7 @@ Matrix product V(T)AV:
  -5.55e-17   1.23e-09      0.778   3.33e-16 
  -2.33e-09  -4.08e-14   3.33e-16       1.76 
 
-V(T)AV == D: True (with precision of order 1e-6).
+V(T)AV = D: True (with precision of order 1e-6).
 -----------------------------------------------------------------
 Matrix product V(T) * V:
          1    5.2e-17   2.22e-16          0 
