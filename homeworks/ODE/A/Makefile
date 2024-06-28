@@ -6,7 +6,7 @@ Out.damped.png:Out.txt Makefile
 			set out "$@";\
 			set xlabel "time [s]";\
 			set ylabel "y";\
-			set title "Damped pendulum (recreation of scipy example)";\
+			set title "Damped pendulum (scipy example)";\
 			set grid;\
 			plot\
 					"$<" index 0 with lines title "theta(t)" \

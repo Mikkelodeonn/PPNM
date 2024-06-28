@@ -2,7 +2,7 @@ Out.3bodyproblem.png: Out.txt Makefile
 	echo '\
 		set terminal png background "white";\
 		set out "$@";\
-		set title "8-Figure solution to the 3-body problem (m1=m2=m3=1, G=1)";\
+		set title "8-figure solution to the 3-body problem (m1=m2=m3=1, G=1)";\
 		set xlabel "x";\
 		set ylabel "y";\
 		set yrange [-1:1];\
