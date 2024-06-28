@@ -22,11 +22,8 @@ Out.txt: main.exe
 main.exe: main.cs ann.cs minimize.cs rndmin.cs simplex.cs neural.dll
 	$(MKEXE)
 
-neural.dll: \
-	../../../mylibrary/matrix.cs \
-	../../../mylibrary/vector.cs \
-	../../linear_equations/qrgs.cs
+neural.dll: matrix.cs vector.cs qrgs.cs
 	$(MKLIB)
 
 clean:
-	$(RM) *.exe *.dll *.txt *.gpi *.png 
+	$(RM) *.exe *.dll *.txt *.gpi *.png log
