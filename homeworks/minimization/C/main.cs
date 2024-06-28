@@ -31,5 +31,7 @@ himmelblau_minima.print("Found minimum (x,y):\n");
 x0.print("Initial guess (x,y):\n");
 WriteLine($"Value of function at found minimum: {himmelblau(himmelblau_minima)}");
 WriteLine($"Steps used: {j}\n");
+
+WriteLine("Conclusion: The finite central difference approx. shows better accuracy than the forward difference thus this is generally the better choice.");
 } // Main
 } // main

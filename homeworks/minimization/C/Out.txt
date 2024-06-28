@@ -20,3 +20,4 @@ Initial guess (x.y):
 Value of function at found minimum: 1.41378140131744E-14
 Steps used: 213
 
+Conclusion: The finite central difference approx. shows better accuracy than the forward difference thus this is generally the better choice.
