@@ -1,4 +1,4 @@
-out.erf.png: out.txt Makefile
+Out.erf.png: Out.txt Makefile
 		echo '\
 					set terminal png background "white";\
 					set out "$@";\
@@ -11,7 +11,7 @@ out.erf.png: out.txt Makefile
 							,"$<" index 2 with points pointtype 2 title "table values"; \
 					'| tee erf.log.gpi | gnuplot
 
-out.txt:main.exe
+Out.txt:main.exe
 	mono $< >$@
 	sed 's/,/./g' $@ > modified_$@ && mv modified_$@ $@
 

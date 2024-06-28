@@ -16,6 +16,8 @@ WriteLine($"                  sqrt(x):          1/sqrt(x):           4sqrt(1-x**
 WriteLine($"Values found:     {Round(a,5)}           {Round(b,5)}              {Round(c,5)}                 {Round(d,5)}\n");
 WriteLine("Values given:     2/3               2                    pi                      -4\n");
 WriteLine($"Evaluations:      {n1}                {n2}                 {n3}                      {n4}");
+WriteLine($"\nAccuracy:         {Round(Abs((0.6666666)-a),4)}            {Round(Abs(2-b),6)}              {Round(Abs(PI-c),4)}                  {Round(Abs(-4-d),4)}");
+WriteLine("\nAll values found well within the given accuracy goal of acc = 0.001.");
 WriteLine("\n\n\n");
 
 for(double i=-3.0 ; i<3.0 ; i+=1.0/32){

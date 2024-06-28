@@ -4,6 +4,7 @@ Various functions numerically integrated from 0 to 1 using Clenshaw-Curtis varia
 Function:                                1/sqrt(x)              ln(x)/sqrt(x)
 Value found:                             1.99999201046432       -3.99987385646141
 Exact value:                             2                      -4
+Accuracy:                                1E-05                  0.00013
 Evaluations:                             16                     96
 Evalutions without Clenshaw-Curtis:      8572                   8604
 

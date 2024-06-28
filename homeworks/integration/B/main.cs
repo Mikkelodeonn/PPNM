@@ -11,6 +11,7 @@ WriteLine("\nVarious functions numerically integrated from 0 to 1 using Clenshaw
 WriteLine("Function:                                1/sqrt(x)              ln(x)/sqrt(x)");
 WriteLine($"Value found:                             {a}       {b}");
 WriteLine("Exact value:                             2                      -4");
+WriteLine($"Accuracy:                                {Round(Abs(2-a),5)}                  {Round(Abs(-4-b),5)}");
 WriteLine($"Evaluations:                             {n1}                     {n2}");
 WriteLine("Evalutions without Clenshaw-Curtis:      8572                   8604\n");
 WriteLine("Conclusion: \nClenshaw-Curtis variable transformation provides a substantial speed-up for evaluating \nintegrals with integrable divergencies at the end-points of the intervals.");
